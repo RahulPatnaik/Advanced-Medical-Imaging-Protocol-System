@@ -1,0 +1,40 @@
+from pydantic import BaseModel
+
+class PatientData(BaseModel):
+    subject_id: int
+    hadm_id: int
+    stay_id: int
+    gender: str
+    age: int
+    race: str
+    admission_type: str
+    insurance: str
+    primary_diagnosis: str
+    hospital_expire_flag: int
+    los_hospital_days: float
+    los_icu_days: float
+    first_careunit: str
+    last_careunit: str
+    creatinine_mg_dl: float
+    bun_mg_dl: float
+    glucose_mg_dl: float
+    hemoglobin_g_dl: float
+    hematocrit_pct: float
+    platelet_count: float
+    wbc_count: float
+    sodium_meq_l: float
+    potassium_meq_l: float
+    chloride_meq_l: float
+    bicarbonate_meq_l: float
+    egfr_ckd_epi: float
+    ckd_stage: str
+    bun_creatinine_ratio: float
+    heart_rate_bpm: int
+    systolic_bp_mmhg: int
+    diastolic_bp_mmhg: int
+    temperature_f: float
+    spo2_pct: int
+    respiratory_rate: int
+    map_mmhg: float
+    pulse_pressure_mmhg: int
+    data_completeness_pct: int

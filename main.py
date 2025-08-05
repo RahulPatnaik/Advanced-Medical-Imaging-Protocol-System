@@ -1,0 +1,3 @@
+def main():
+    """Load data, process each row through agent1 → agent2 → agent3."""
+    ...

@@ -1,0 +1,3 @@
+def run_protocol_agent(patient: PatientData) -> dict:
+    """Uses Tavily + rules to determine imaging protocol for the patient."""
+    ...

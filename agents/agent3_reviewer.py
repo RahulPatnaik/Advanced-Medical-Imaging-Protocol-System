@@ -1,0 +1,3 @@
+def run_review_agent(protocol: dict, patient: PatientData) -> dict:
+    """Validates whether protocol is safe, complete, and justified."""
+    ...

@@ -1,0 +1,233 @@
+{
+  "verdict": "approved_with_warnings",
+  "issues": [
+    {
+      "id": "egfr_ckd_epi",
+      "units": "ml/min/1.73m2",
+      "timestamp": "2025-08-10T13:07:40.245919Z",
+      "value": 135.1,
+      "status": "pass",
+      "reason": "Low renal risk for contrast."
+    },
+    {
+      "id": "creatinine_mg_dl",
+      "units": "mg/dL",
+      "timestamp": "2025-08-10T13:07:40.245919Z",
+      "value": 0.5,
+      "status": "pass",
+      "reason": "Creatinine within normal range."
+    },
+    {
+      "id": "bun_creatinine_ratio",
+      "timestamp": "2025-08-10T13:07:40.245919Z",
+      "value": null,
+      "status": "warning",
+      "reason": "Missing BUN or creatinine."
+    },
+    {
+      "id": "potassium_meq_l",
+      "units": "mEq/L",
+      "timestamp": "2025-08-10T13:07:40.245919Z",
+      "value": null,
+      "status": "warning",
+      "reason": "Potassium not available"
+    },
+    {
+      "id": "bmi_creatinine_correlation",
+      "timestamp": "2025-08-10T13:07:40.245919Z",
+      "value": null,
+      "status": "info",
+      "reason": "Missing BMI or creatinine."
+    },
+    {
+      "id": "lab_staleness",
+      "timestamp": "2025-08-10T13:07:40.245919Z",
+      "value": {},
+      "status": "info",
+      "reason": "No lab timestamps provided."
+    },
+    "Missing BUN and/or creatinine values for BUN/creatinine ratio",
+    "Potassium level unavailable",
+    "BMI missing, affecting BMI\u2011creatinine correlation",
+    "Lab timestamps not provided, affecting lab staleness assessment",
+    "Hemodynamic instability (low MAP and SBP) may increase risk of contrast administration"
+  ],
+  "recommendations": [
+    "Proceed with emergent contrast\u2011enhanced CT/CTA as per protocol",
+    "Obtain missing laboratory values (BUN, potassium, BMI) as soon as possible and monitor renal function post\u2011contrast",
+    "Ensure adequate fluid resuscitation and hemodynamic support before contrast administration due to low MAP",
+    "Document discussion of renal and hemodynamic risks, obtain consent, and monitor creatinine post\u2011procedure",
+    "Consider alternative imaging if patient's hemodynamic status deteriorates before imaging"
+  ],
+  "confidence": 0.76,
+  "override_provided": false,
+  "override_justification": "",
+  "timestamp": "2025-08-10T13:07:43.022333Z",
+  "tool_outputs": {
+    "renal": {
+      "tool_id": "renal_tool_v1",
+      "checks": [
+        {
+          "id": "egfr_ckd_epi",
+          "units": "ml/min/1.73m2",
+          "timestamp": "2025-08-10T13:07:40.245919Z",
+          "value": 135.1,
+          "status": "pass",
+          "reason": "Low renal risk for contrast."
+        },
+        {
+          "id": "creatinine_mg_dl",
+          "units": "mg/dL",
+          "timestamp": "2025-08-10T13:07:40.245919Z",
+          "value": 0.5,
+          "status": "pass",
+          "reason": "Creatinine within normal range."
+        },
+        {
+          "id": "bun_creatinine_ratio",
+          "timestamp": "2025-08-10T13:07:40.245919Z",
+          "value": null,
+          "status": "warning",
+          "reason": "Missing BUN or creatinine."
+        },
+        {
+          "id": "potassium_meq_l",
+          "units": "mEq/L",
+          "timestamp": "2025-08-10T13:07:40.245919Z",
+          "value": null,
+          "status": "warning",
+          "reason": "Potassium not available"
+        },
+        {
+          "id": "bmi_creatinine_correlation",
+          "timestamp": "2025-08-10T13:07:40.245919Z",
+          "value": null,
+          "status": "info",
+          "reason": "Missing BMI or creatinine."
+        },
+        {
+          "id": "lab_staleness",
+          "timestamp": "2025-08-10T13:07:40.245919Z",
+          "value": {},
+          "status": "info",
+          "reason": "No lab timestamps provided."
+        }
+      ],
+      "summary": {
+        "overall": "warning",
+        "reasons": [
+          "Missing BUN or creatinine.",
+          "Potassium not available",
+          "Missing BMI or creatinine.",
+          "No lab timestamps provided."
+        ],
+        "confidence": 0.92
+      },
+      "metadata": {
+        "version": "1.0.0",
+        "run_ts": "2025-08-10T13:07:40.245919Z"
+      }
+    }
+  },
+  "llm_raw": "{\n  \"verdict\": \"approved_with_warnings\",\n  \"issues\": [\n    \"Missing BUN and/or creatinine values for BUN/creatinine ratio\",\n    \"Potassium level unavailable\",\n    \"BMI missing, affecting BMI\u2011creatinine correlation\",\n    \"Lab timestamps not provided, affecting lab staleness assessment\",\n    \"Hemodynamic instability (low MAP and SBP) may increase risk of contrast administration\"\n  ],\n  \"recommendations\": [\n    \"Proceed with emergent contrast\u2011enhanced CT/CTA as per protocol\",\n    \"Obtain missing laboratory values (BUN, potassium, BMI) as soon as possible and monitor renal function post\u2011contrast\",\n    \"Ensure adequate fluid resuscitation and hemodynamic support before contrast administration due to low MAP\",\n    \"Document discussion of renal and hemodynamic risks, obtain consent, and monitor creatinine post\u2011procedure\",\n    \"Consider alternative imaging if patient's hemodynamic status deteriorates before imaging\"\n  ],\n  \"confidence\": 0.86\n}",
+  "hallucination_analysis": {
+    "statement_assessments": [
+      {
+        "text": "Missing BUN and/or creatinine values for BUN/creatinine ratio",
+        "type": "issue",
+        "classification": "supported",
+        "rationale": "matches known fact 'f'"
+      },
+      {
+        "text": "Potassium level unavailable",
+        "type": "issue",
+        "classification": "unverified",
+        "rationale": "no direct or inferred support found"
+      },
+      {
+        "text": "BMI missing, affecting BMI\u2011creatinine correlation",
+        "type": "issue",
+        "classification": "supported",
+        "rationale": "matches known fact 'f'"
+      },
+      {
+        "text": "Lab timestamps not provided, affecting lab staleness assessment",
+        "type": "issue",
+        "classification": "supported",
+        "rationale": "matches known fact 'f'"
+      },
+      {
+        "text": "Hemodynamic instability (low MAP and SBP) may increase risk of contrast administration",
+        "type": "issue",
+        "classification": "supported",
+        "rationale": "matches known fact 'f'"
+      },
+      {
+        "text": "Proceed with emergent contrast\u2011enhanced CT/CTA as per protocol",
+        "type": "recommendation",
+        "classification": "unverified",
+        "rationale": "no direct or inferred support found"
+      },
+      {
+        "text": "Obtain missing laboratory values (BUN, potassium, BMI) as soon as possible and monitor renal function post\u2011contrast",
+        "type": "recommendation",
+        "classification": "supported",
+        "rationale": "matches known fact 'f'"
+      },
+      {
+        "text": "Ensure adequate fluid resuscitation and hemodynamic support before contrast administration due to low MAP",
+        "type": "recommendation",
+        "classification": "supported",
+        "rationale": "matches known fact 'f'"
+      },
+      {
+        "text": "Document discussion of renal and hemodynamic risks, obtain consent, and monitor creatinine post\u2011procedure",
+        "type": "recommendation",
+        "classification": "domain_safe",
+        "rationale": "matches safe-whitelist 'monitor creatinine'"
+      },
+      {
+        "text": "Consider alternative imaging if patient's hemodynamic status deteriorates before imaging",
+        "type": "recommendation",
+        "classification": "supported",
+        "rationale": "matches known fact 'f'"
+      }
+    ],
+    "counts": {
+      "supported": 7,
+      "inferred": 0,
+      "domain_safe": 1,
+      "unverified": 2,
+      "contradicted": 0
+    },
+    "hallucination_score": 0.1,
+    "recommendation": {
+      "force_revision": false,
+      "confidence_reduction": 0.1
+    },
+    "knowledge_base_summary": {
+      "numbers": {
+        "subject_id": 10014729.0,
+        "hadm_id": 28889419.0,
+        "stay_id": 33558396.0,
+        "age": 21.0,
+        "creatinine_mg_dl": 0.5,
+        "egfr_ckd_epi": 135.1,
+        "systolic_bp_mmhg": 78.0,
+        "map_mmhg": 49.3
+      },
+      "raw_strings_sample": [
+        "78",
+        "no lab timestamps provided.",
+        "creatinine within normal range.",
+        "egfr_ckd_epi",
+        "{}",
+        "10014729",
+        "bun_creatinine_ratio",
+        "0.5",
+        "low renal risk for contrast.",
+        "missing bun or creatinine."
+      ]
+    }
+  }
+}

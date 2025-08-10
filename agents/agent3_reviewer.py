@@ -14,6 +14,7 @@ if PROJECT_ROOT not in sys.path:
     sys.path.insert(0, PROJECT_ROOT)
 
 from tools.renal_tools import run_renal_tool
+from tools.hallucination_detector import detect_and_score_statements
 
 # Initialize Groq client once
 GROQ_API_KEY = os.getenv("GROQ_API_KEY")
@@ -76,7 +77,6 @@ def validate_llm_output(llm_raw):
     return parsed, None
 
 def run_review_agent(protocol: dict, patient: dict) -> dict:
-    """Validates whether protocol is safe, complete, and justified."""
     # Step 1: Deterministic renal checks
     renal_out = run_renal_tool(patient)
 
@@ -96,7 +96,21 @@ def run_review_agent(protocol: dict, patient: dict) -> dict:
             "override_justification": ""
         }
 
-    # Step 4: Merge
+    # Step 4: Hallucination & fact-check analysis
+    analysis = detect_and_score_statements(llm_parsed, patient, {"renal": renal_out})
+    llm_parsed["_statement_assessments"] = analysis["statement_assessments"]
+    llm_parsed["_hallucination_counts"] = analysis["counts"]
+    llm_parsed["_hallucination_score"] = analysis["hallucination_score"]
+    llm_parsed["_kb_summary"] = analysis["knowledge_base_summary"]
+
+    if analysis["recommendation"]["force_revision"]:
+        llm_parsed["verdict"] = "needs_revision"
+    llm_parsed["confidence"] = max(
+        0.0, 
+        round(float(llm_parsed.get("confidence", 1.0)) - analysis["recommendation"]["confidence_reduction"], 3)
+    )
+
+    # Step 5: Merge
     final = {
         "verdict": llm_parsed["verdict"],
         "issues": renal_out["checks"] + llm_parsed["issues"],
@@ -106,9 +120,11 @@ def run_review_agent(protocol: dict, patient: dict) -> dict:
         "override_justification": llm_parsed.get("override_justification", ""),
         "timestamp": now_iso(),
         "tool_outputs": {"renal": renal_out},
-        "llm_raw": llm_raw
+        "llm_raw": llm_raw,
+        "hallucination_analysis": analysis  # Store full analysis in output for transparency
     }
     return final
+
 
 if __name__ == "__main__":
     import sys

@@ -1,0 +1,134 @@
+{
+  "verdict": "approved_with_warnings",
+  "issues": [
+    {
+      "id": "egfr_ckd_epi",
+      "units": "ml/min/1.73m2",
+      "timestamp": "2025-08-10T05:08:48.814828Z",
+      "value": 135.1,
+      "status": "pass",
+      "reason": "Low renal risk for contrast."
+    },
+    {
+      "id": "creatinine_mg_dl",
+      "units": "mg/dL",
+      "timestamp": "2025-08-10T05:08:48.814828Z",
+      "value": 0.5,
+      "status": "pass",
+      "reason": "Creatinine within normal range."
+    },
+    {
+      "id": "bun_creatinine_ratio",
+      "timestamp": "2025-08-10T05:08:48.814828Z",
+      "value": null,
+      "status": "warning",
+      "reason": "Missing BUN or creatinine."
+    },
+    {
+      "id": "potassium_meq_l",
+      "units": "mEq/L",
+      "timestamp": "2025-08-10T05:08:48.814828Z",
+      "value": null,
+      "status": "warning",
+      "reason": "Potassium not available"
+    },
+    {
+      "id": "bmi_creatinine_correlation",
+      "timestamp": "2025-08-10T05:08:48.814828Z",
+      "value": null,
+      "status": "info",
+      "reason": "Missing BMI or creatinine."
+    },
+    {
+      "id": "lab_staleness",
+      "timestamp": "2025-08-10T05:08:48.814828Z",
+      "value": {},
+      "status": "info",
+      "reason": "No lab timestamps provided."
+    },
+    "Missing BUN value (required for BUN/creatinine ratio assessment)",
+    "Potassium level not available",
+    "Body mass index (BMI) missing, limiting BMI\u2011creatinine correlation analysis",
+    "Lab timestamps unavailable, limiting assessment of lab staleness",
+    "Patient is hemodynamically unstable (MAP 49.3 mmHg), raising concern for contrast\u2011induced nephropathy despite low eGFR"
+  ],
+  "recommendations": [
+    "Proceed with emergent contrast\u2011enhanced CT/CTA as per protocol, given the life\u2011threatening thoracic aortic injury.",
+    "Obtain missing laboratory values (BUN, potassium, BMI) as soon as feasible to allow full renal risk assessment.",
+    "Ensure hemodynamic stabilization (e.g., blood pressure support) before contrast administration if possible, or consider alternative imaging if stabilization cannot be achieved promptly.",
+    "Document discussion of renal risk, obtain informed consent, and note the patient\u2019s hemodynamic status in the imaging order.",
+    "Monitor serum creatinine and eGFR post\u2011contrast to detect any acute kidney injury, especially given the hypotension.",
+    "Consider post\u2011contrast hydration protocol if clinically appropriate."
+  ],
+  "confidence": 0.85,
+  "override_provided": false,
+  "override_justification": "",
+  "timestamp": "2025-08-10T05:08:50.886914Z",
+  "tool_outputs": {
+    "renal": {
+      "tool_id": "renal_tool_v1",
+      "checks": [
+        {
+          "id": "egfr_ckd_epi",
+          "units": "ml/min/1.73m2",
+          "timestamp": "2025-08-10T05:08:48.814828Z",
+          "value": 135.1,
+          "status": "pass",
+          "reason": "Low renal risk for contrast."
+        },
+        {
+          "id": "creatinine_mg_dl",
+          "units": "mg/dL",
+          "timestamp": "2025-08-10T05:08:48.814828Z",
+          "value": 0.5,
+          "status": "pass",
+          "reason": "Creatinine within normal range."
+        },
+        {
+          "id": "bun_creatinine_ratio",
+          "timestamp": "2025-08-10T05:08:48.814828Z",
+          "value": null,
+          "status": "warning",
+          "reason": "Missing BUN or creatinine."
+        },
+        {
+          "id": "potassium_meq_l",
+          "units": "mEq/L",
+          "timestamp": "2025-08-10T05:08:48.814828Z",
+          "value": null,
+          "status": "warning",
+          "reason": "Potassium not available"
+        },
+        {
+          "id": "bmi_creatinine_correlation",
+          "timestamp": "2025-08-10T05:08:48.814828Z",
+          "value": null,
+          "status": "info",
+          "reason": "Missing BMI or creatinine."
+        },
+        {
+          "id": "lab_staleness",
+          "timestamp": "2025-08-10T05:08:48.814828Z",
+          "value": {},
+          "status": "info",
+          "reason": "No lab timestamps provided."
+        }
+      ],
+      "summary": {
+        "overall": "warning",
+        "reasons": [
+          "Missing BUN or creatinine.",
+          "Potassium not available",
+          "Missing BMI or creatinine.",
+          "No lab timestamps provided."
+        ],
+        "confidence": 0.92
+      },
+      "metadata": {
+        "version": "1.0.0",
+        "run_ts": "2025-08-10T05:08:48.814828Z"
+      }
+    }
+  },
+  "llm_raw": "{\n  \"verdict\": \"approved_with_warnings\",\n  \"issues\": [\n    \"Missing BUN value (required for BUN/creatinine ratio assessment)\",\n    \"Potassium level not available\",\n    \"Body mass index (BMI) missing, limiting BMI\u2011creatinine correlation analysis\",\n    \"Lab timestamps unavailable, limiting assessment of lab staleness\",\n    \"Patient is hemodynamically unstable (MAP 49.3 mmHg), raising concern for contrast\u2011induced nephropathy despite low eGFR\"\n  ],\n  \"recommendations\": [\n    \"Proceed with emergent contrast\u2011enhanced CT/CTA as per protocol, given the life\u2011threatening thoracic aortic injury.\",\n    \"Obtain missing laboratory values (BUN, potassium, BMI) as soon as feasible to allow full renal risk assessment.\",\n    \"Ensure hemodynamic stabilization (e.g., blood pressure support) before contrast administration if possible, or consider alternative imaging if stabilization cannot be achieved promptly.\",\n    \"Document discussion of renal risk, obtain informed consent, and note the patient\u2019s hemodynamic status in the imaging order.\",\n    \"Monitor serum creatinine and eGFR post\u2011contrast to detect any acute kidney injury, especially given the hypotension.\",\n    \"Consider post\u2011contrast hydration protocol if clinically appropriate.\"\n  ],\n  \"confidence\": 0.85\n}"
+}

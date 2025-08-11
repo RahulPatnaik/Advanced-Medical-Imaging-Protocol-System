@@ -1,8 +1,8 @@
-# agent2_2_protocol.py (Protocol creation and selection agent))
+# agent2_2_protocol.py (Protocol creation and selection agent)
 import os
 import json
 import re
-from typing import Dict, Any, List
+from typing import Dict, Any, List, Optional
 from langgraph.graph import StateGraph
 from pydantic import BaseModel
 from google import genai
@@ -27,6 +27,7 @@ class AgentState(BaseModel):
     protocol_db: List[Dict[str, Any]]
     selected_protocols: List[Dict[str, Any]]
     final_decision: Dict[str, Any]
+    feedback: Optional[Dict[str, Any]] = None  # ✅ New optional feedback field
 
 # ==== NODES ====
 def load_protocol_db(state: AgentState) -> AgentState:
@@ -75,7 +76,17 @@ ENHANCED CONTEXT:
 
 SELECTED PROTOCOLS:
 {json.dumps(state.selected_protocols, indent=2)}
+"""
 
+    # ✅ Include reviewer feedback if provided
+    if state.feedback:
+        prompt += f"""
+REVIEWER FEEDBACK (for improvement in this revision):
+{json.dumps(state.feedback, indent=2)}
+IMPORTANT: Incorporate this feedback when adjusting recommendations, rationale, and protocol selection.
+"""
+
+    prompt += """
 TASK:
 Generate a JSON with:
 - "recommendations": 2-4 concise actionable imaging recommendations.
@@ -83,6 +94,7 @@ Generate a JSON with:
 - "protocol_selection": array with the 2 chosen protocols and their details.
 Make sure your output is valid JSON only.
 """
+
     resp = client.models.generate_content(model=MODEL, contents=prompt)
     state.final_decision = extract_json_from_text(resp.text)
     return state
@@ -97,7 +109,22 @@ graph.add_edge("load_db", "select_protocols")
 graph.add_edge("select_protocols", "generate_decision")
 graph.set_entry_point("load_db")
 
-# ==== RUN ====
+# ==== PUBLIC RUN FUNCTION ====
+def run_agent2_2(patient_data: Dict[str, Any], enhanced_context: str, feedback: Optional[Dict[str, Any]] = None):
+    """Runs the protocol selection agent with optional reviewer feedback."""
+    state = AgentState(
+        patient_data=patient_data,
+        enhanced_context=enhanced_context,
+        protocol_db=[],
+        selected_protocols=[],
+        final_decision={},
+        feedback=feedback
+    )
+    app = graph.compile()
+    final_state = app.invoke(state)
+    return final_state["final_decision"]
+
+# ==== TEST RUN ====
 if __name__ == "__main__":
     sample_patient = {
         "subject_id": 10014729,
@@ -124,14 +151,12 @@ if __name__ == "__main__":
         "Hydration protocols and consideration of alternative imaging modalities are recommended before proceeding with contrast-enhanced CT."
     )
 
-    state = AgentState(
-        patient_data=sample_patient,
-        enhanced_context=enhanced_context,
-        protocol_db=[],
-        selected_protocols=[],
-        final_decision={}
-    )
+    # Example feedback
+    feedback_example = {
+        "issues": ["Protocol dose not optimized for patient weight"],
+        "recommendations": ["Reduce contrast dose to lowest safe limit"],
+        "confidence": 0.72
+    }
 
-    app = graph.compile()
-    final_state = app.invoke(state)
-    print(json.dumps(final_state["final_decision"], indent=2, ensure_ascii=False))
+    result = run_agent2_2(sample_patient, enhanced_context, feedback=feedback_example)  # No feedback
+    print(json.dumps(result, indent=2, ensure_ascii=False))

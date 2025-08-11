@@ -78,7 +78,7 @@ SELECTED PROTOCOLS:
 {json.dumps(state.selected_protocols, indent=2)}
 """
 
-    # ✅ Include reviewer feedback if provided
+    # Include reviewer feedback if provided
     if state.feedback:
         prompt += f"""
 REVIEWER FEEDBACK (for improvement in this revision):

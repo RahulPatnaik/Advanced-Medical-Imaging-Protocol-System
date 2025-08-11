@@ -27,7 +27,7 @@ class AgentState(BaseModel):
     protocol_db: List[Dict[str, Any]]
     selected_protocols: List[Dict[str, Any]]
     final_decision: Dict[str, Any]
-    feedback: Optional[Dict[str, Any]] = None  # ✅ New optional feedback field
+    feedback: Optional[Dict[str, Any]] = None  # optional feedback field
 
 # ==== NODES ====
 def load_protocol_db(state: AgentState) -> AgentState:
@@ -158,5 +158,5 @@ if __name__ == "__main__":
         "confidence": 0.72
     }
 
-    result = run_agent2_2(sample_patient, enhanced_context, feedback=feedback_example)  # No feedback
+    result = run_agent2_2(sample_patient, enhanced_context, feedback=None)  # No feedback
     print(json.dumps(result, indent=2, ensure_ascii=False))

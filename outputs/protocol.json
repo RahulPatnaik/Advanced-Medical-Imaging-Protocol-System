@@ -1,46 +1,44 @@
 {
-  "decision_text": "Patient: age 21, primary: Injury to thoracic aorta.\nActionable summary:\n- Proceed with emergent contrast-enhanced CT/CTA immediately.\n- Notify radiology and document renal function and contrast volume.\n- Document discussion of renal risk and obtain consent when practicable; monitor creatinine post-contrast if indicated.",
+  "decision_text": "Patient: age 72, primary: Right Chest pain, history of diabetes and hypertension.\nActionable summary:\n- Encourage oral hydration for outpatients; consider point-of-care creatinine if no recent result.\n- Consider alternative non-contrast imaging if diagnostically adequate.\n- Document discussion of renal risk and obtain consent when practicable; monitor creatinine post-contrast if indicated.",
   "rationale": [
-    "eGFR 135.1 \u2014 lower renal risk.",
-    "MAP 49.3 mmHg \u2014 haemodynamic compromise.",
-    "Life/organ-threatening diagnosis; imaging benefit may outweigh renal risk."
+    "eGFR 59 \u2014 moderate renal risk; consider hydration/minimize contrast.",
+    "MAP 49.3 mmHg \u2014 haemodynamic compromise."
   ],
   "flags": [
-    "low_renal_risk",
-    "hemodynamic_instability",
-    "emergent_imaging_required"
+    "moderate_renal_risk",
+    "hemodynamic_instability"
   ],
   "guideline_snippets": [
     {
       "id": "ACR_contrast_manual#18",
-      "score": 0.5509134531021118,
+      "score": 0.5508261322975159,
       "text": "ACR-NKF Consensus Statement: Use of Intravenous Gadolinium-based Contrast Media in Patients With Kidney Disease"
     },
     {
       "id": "ACR_contrast_manual#17",
-      "score": 0.5494996905326843,
+      "score": 0.5449216365814209,
       "text": "ACR-NKF Consensus Statement: Use of Intravenous Iodinated Contrast Media in Patients With Kidney Disease"
     },
     {
-      "id": "ACR_contrast_manual#8",
-      "score": 0.44094014167785645,
-      "text": "Nephrogenic Systemic Fibrosis (NSF) - Clarification on gadolinium-based contrast agent groups"
-    },
-    {
       "id": "NICE_NG203_CHRONIC_KIDNEY_DISEASE#38",
-      "score": 0.426973819732666,
+      "score": 0.43342769145965576,
       "text": "glomerular filtration rate for diagnosing anaemia associated with CKD"
     },
     {
-      "id": "ACR_contrast_manual#21",
-      "score": 0.4183237552642822,
-      "text": "Statement from Drugs and Contrast Media Committee on Supervision of Contrast Material Administration"
+      "id": "ACR_contrast_manual#8",
+      "score": 0.4332014322280884,
+      "text": "Nephrogenic Systemic Fibrosis (NSF) - Clarification on gadolinium-based contrast agent groups"
     },
     {
       "id": "NICE_NG203_CHRONIC_KIDNEY_DISEASE#4",
-      "score": 0.4093932509422302,
+      "score": 0.4098008871078491,
       "text": "Kidney conditions"
+    },
+    {
+      "id": "ACR_contrast_manual#21",
+      "score": 0.4027111530303955,
+      "text": "Statement from Drugs and Contrast Media Committee on Supervision of Contrast Material Administration"
     }
   ],
-  "timestamp": 1754751823.1020515
+  "timestamp": 1754839788.8902946
 }

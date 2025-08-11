@@ -1,0 +1,102 @@
+[
+  {
+    "protocol_id": "CT_CHEST_ANGIO_PULMONARY_EMBOLISM",
+    "name": "CT Pulmonary Angiography (Chest CTA for PE)",
+    "indications": ["pulmonary embolism", "acute chest pain", "shortness of breath"],
+    "description": "CT angiography timed for pulmonary arterial phase (6–13 sec post-contrast) to evaluate pulmonary arteries for embolism.",
+    "contrast_timing": "Pulmonary arterial phase: ∼6–13 sec post-injection." ,
+    "contrast_dose": "Weight-based; ~100–150 mL iodinated contrast (300 mg I/mL); follow ACR Manual.",
+    "renal_safety_notes": "Ensure contrast-to-eGFR ratio <1.1 g/(mL/min); if eGFR <30, consider non-contrast alternatives or weigh risks carefully.",
+    "references": ["Contrast CT phases overview (Wikipedia):contentReference[oaicite:0]{index=0}", "CT pulmonary angiogram practical notes (Wikipedia):contentReference[oaicite:1]{index=1}"]
+  },
+  {
+    "protocol_id": "CT_ABDOMEN_PELVIS_PORTAL_VENOUS",
+    "name": "CT Abdomen & Pelvis with IV Contrast — Portal Venous Phase",
+    "indications": ["abdominal pain", "infection", "trauma", "mass evaluation"],
+    "description": "Single-phase contrast-enhanced CT (portal venous), ideal for broad abdomen/pelvis evaluation.",
+    "contrast_timing": "Portal venous phase: ∼60–90 sec post-contrast injection.", 
+    "contrast_dose": "Standard ~100–150 mL iodinated contrast; adjust for renal function.",
+    "renal_safety_notes": "Hydration and dose adjustment recommended; avoid if eGFR <30 unless emergent.",
+    "references": ["CT abdomen/pelvis portal venous phase (Wikipedia):contentReference[oaicite:2]{index=2}"]
+  },
+  {
+    "protocol_id": "CT_NON_CONTRAST_HEAD",
+    "name": "Non-Contrast CT Head",
+    "indications": ["head trauma", "suspected stroke", "acute headache"],
+    "description": "Rapid non-contrast CT for hemorrhage or infarct evaluation.",
+    "contrast_timing": "N/A — no contrast.",
+    "contrast_dose": "None.",
+    "renal_safety_notes": "Preferred in patients with renal impairment or contrast allergy.",
+    "references": ["CT Protocol Concepts (Radiopaedia):contentReference[oaicite:3]{index=3}"]
+  },
+  {
+    "protocol_id": "CT_LIVER_LIRADS_MULTIPHASE",
+    "name": "Liver Lesion Characterization (LI-RADS Multiphase)",
+    "indications": ["chronic liver disease", "HCC evaluation", "liver lesion follow-up"],
+    "description": "Includes non-contrast, arterial, portal venous, and delayed phases as per LI-RADS.",
+    "contrast_timing": "Arterial (∼35 sec), portal venous (∼70–80 sec), delayed (3–4 min).",
+    "contrast_dose": "As per abdomen protocol; adjust in renal impairment.",
+    "renal_safety_notes": "Consider MRI in patients with eGFR <30; use hydration and dose adjustment.",
+    "references": ["Contrast CT phases overview (Wikipedia):contentReference[oaicite:4]{index=4}", "LI-RADS explanation (Wikipedia):contentReference[oaicite:5]{index=5}"]
+  },
+  {
+    "protocol_id": "CT_CHEST_LOW_DOSE_SCREENING",
+    "name": "Low-Dose CT Chest — Lung Cancer Screening",
+    "indications": ["lung cancer screening", "high-risk cohorts"],
+    "description": "Low-dose CT of lungs targeting <3 mGy radiation dose while maintaining image quality.",
+    "contrast_timing": "N/A — non-contrast low-dose protocol.",
+    "contrast_dose": "None.",
+    "renal_safety_notes": "Ideal in patients with renal dysfunction due to non-use of contrast.",
+    "references": ["Low-dose CT screening dose benchmarks PMC:contentReference[oaicite:6]{index=6}"]
+  },
+  {
+    "protocol_id": "CT_TRAUMA_CHEST_ABD_PELVIS",
+    "name": "Trauma CT — Chest, Abdomen & Pelvis with Contrast",
+    "indications": ["blunt/penetrating trauma", "active hemorrhage evaluation"],
+    "description": "Contrast CT of torso with trauma-focused reformats; may include delayed images as needed.",
+    "contrast_timing": "Portal venous phase, possible delayed imaging to assess hemorrhage.",
+    "contrast_dose": "Standard contrast dose; trauma protocols may include split bolus techniques.",
+    "renal_safety_notes": "Minimize field-of-view and dose; use alternative imaging if stable and renal risk high.",
+    "references": ["UW Trauma protocol overview (PDF):contentReference[oaicite:7]{index=7}"]
+  },
+  {
+    "protocol_id": "CT_CTA_CAROTIDS",
+    "name": "CT Angiography — Carotid Arteries (CTA Neck)",
+    "indications": ["stroke workup", "carotid stenosis", "neurological symptoms"],
+    "description": "CTA through neck using bolus tracking; triggered at specified HU in vessels.",
+    "contrast_timing": "Start when arterial lumen reaches threshold (~150 HU trigger).",
+    "contrast_dose": "Adult: ~100 mL iodinated contrast at 4–5 mL/sec; pediatric: 2 mL/kg max.",
+    "renal_safety_notes": "Arterial studies have high contrast load; assess renal risk and consider MRI/MRA.",
+    "references": ["OHSU CTA head/neck details:contentReference[oaicite:8]{index=8}"]
+  },
+  {
+    "protocol_id": "CT_SPINE_WITH_CONTRAST",
+    "name": "CT Spine with Contrast (Cervical/Thoracic/Lumbar)",
+    "indications": ["spinal infection", "tumor evaluation", "post-op assessment"],
+    "description": "Contrast-enhanced CT of spine; includes soft tissue and bone reformats.",
+    "contrast_timing": "Portal venous-like delay (~70 sec post-injection).",
+    "contrast_dose": "Adult: ~100 mL iodinated contrast; pediatric: 2 mL/kg max.",
+    "renal_safety_notes": "Use caution in renal impairment; MRI may be preferred.",
+    "references": ["OHSU spine with contrast protocols:contentReference[oaicite:9]{index=9}"]
+  },
+  {
+    "protocol_id": "CT_ORBIT_FACIAL_BONES_NONCONTRAST",
+    "name": "Non-Contrast CT — Orbits and Facial Bones",
+    "indications": ["orbital fracture", "foreign body localization", "sinus trauma"],
+    "description": "High-resolution bone algorithm non-contrast CT of orbital and facial structures.",
+    "contrast_timing": "N/A — no contrast used.",
+    "contrast_dose": "None.",
+    "renal_safety_notes": "Ideal for patients with renal insufficiency or trauma.",
+    "references": ["CT protocol review guidance AAPM"]
+  },
+  {
+    "protocol_id": "CT_LIVER_NON_CONTRAST_FOR_CALCIFICATIONS",
+    "name": "Non-Contrast CT for Liver Calcification/Stone Detection",
+    "indications": ["liver calcifications", "renal stones", "fatty infiltration"],
+    "description": "Non-contrast CT targeting calcified or fat-containing lesions.",
+    "contrast_timing": "N/A — non-contrast.",
+    "contrast_dose": "None.",
+    "renal_safety_notes": "Safe modality for renal impairment and repeat imaging.",
+    "references": ["Contrast CT phases overview (Wikipedia)"]
+  }
+]

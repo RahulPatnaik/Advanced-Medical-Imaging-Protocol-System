@@ -1,15 +1,14 @@
 {
   "recommendations": [
-    "Proceed with CT_TRAUMA_CHEST_ABD_PELVIS, ensuring the protocol includes a dedicated thoracic aorta CTA sequence and a pulmonary arterial phase acquisition.",
-    "Administer pre-contrast intravenous fluids (e.g., 1 L normal saline) to mitigate risk of contrast-induced nephropathy given severe hypotension.",
-    "Perform serial monitoring of renal function (creatinine, BUN) at 24-48 hours post-contrast.",
-    "Continuously monitor hemodynamics during and after contrast administration, with a low threshold for vasopressor support if MAP remains below 60 mmHg."
+    "Administer intravenous fluids prior to contrast administration to mitigate risk of contrast-induced nephropathy.",
+    "Consider a lower contrast volume or a split-bolus technique if using CTA protocols.",
+    "Evaluate the need for delayed imaging carefully, considering the patient's hemodynamic status."
   ],
   "rationale": [
-    "The primary diagnosis of Injury to thoracic aorta mandates a protocol capable of detailed aortic assessment.",
-    "Severe hypotension (MAP 49.3 mmHg) increases risk of CIN, necessitating aggressive hydration.",
-    "Post-contrast renal function monitoring is crucial for early detection of AKI.",
-    "Close hemodynamic monitoring is essential due to the patient's unstable blood pressure."
+    "Patient has severe hypotension (MAP 49.3 mmHg), increasing risk of contrast-related complications.",
+    "Patient's eGFR is normal (Stage 1 CKD), but hemodynamic instability warrants caution.",
+    "Injury to thoracic aorta is the primary diagnosis, and CTA is often utilized for this.",
+    "ACR Manual on Contrast Media advises caution with contrast use in hypotensive patients."
   ],
   "protocol_selection": [
     {

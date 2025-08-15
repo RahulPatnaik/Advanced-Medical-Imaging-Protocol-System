@@ -1,15 +1,15 @@
 {
   "recommendations": [
-    "Select a dedicated 'CT Thoracic Aorta CTA' protocol with arterial phase timing optimized for aortic opacification (approximately 20-30 seconds post-injection).",
-    "Administer a cautious pre-contrast isotonic fluid bolus (250-500 mL) with continuous hemodynamic monitoring, and consider vasoactive support if MAP remains below 55 mmHg.",
-    "Utilize a low-osmolar or iso-osmolar non-ionic contrast agent at a reduced volume (e.g., 80 mL).",
-    "Schedule post-contrast serum creatinine and eGFR checks at 12-24 hours and 24-48 hours post-administration."
+    "Prioritize a focused CT Angiography of the Chest to specifically evaluate the thoracic aorta, minimizing contrast volume compared to a full torso trauma scan.",
+    "Administer 500-1000 mL of isotonic intravenous fluid pre-contrast to support renal perfusion and hemodynamics given the profound hypotension (MAP 49.3 mmHg).",
+    "Utilize a low-contrast volume protocol (e.g., 80 mL total) with a split-bolus technique for the CTA.",
+    "Perform post-contrast serum creatinine and eGFR assessment at 24-48 hours to monitor for any contrast-induced nephropathy."
   ],
   "rationale": [
-    "The primary diagnosis of 'Injury to thoracic aorta' necessitates a protocol specifically designed for thoracic aorta visualization.",
-    "Severe hypotension (MAP 49.3 mmHg) requires careful fluid management to improve renal perfusion and hemodynamic stability prior to contrast administration.",
-    "Minimizing contrast volume and using less nephrotoxic contrast agents are crucial for renal safety in hypotensive patients.",
-    "Close monitoring of renal function post-contrast is essential to detect early signs of contrast-induced nephropathy."
+    "The primary clinical concern is injury to the thoracic aorta, making a focused CTA more appropriate than a broad trauma scan, thereby reducing contrast exposure.",
+    "The patient's severe hypotension necessitates proactive measures to mitigate contrast-related risks and support hemodynamic stability.",
+    "Minimizing contrast volume is crucial in hemodynamically compromised patients to reduce potential nephrotoxicity.",
+    "Post-contrast renal function monitoring is essential in at-risk patients to detect early signs of kidney injury."
   ],
   "protocol_selection": [
     {
@@ -21,13 +21,14 @@
         "shortness of breath"
       ],
       "description": "CT angiography timed for pulmonary arterial phase (6–13 sec post-contrast) to evaluate pulmonary arteries for embolism.",
-      "contrast_timing": "Pulmonary arterial phase: ≈6–13 sec post-injection.",
+      "contrast_timing": "Pulmonary arterial phase: ∼6–13 sec post-injection.",
       "contrast_dose": "Weight-based; ~100–150 mL iodinated contrast (300 mg I/mL); follow ACR Manual.",
       "renal_safety_notes": "Ensure contrast-to-eGFR ratio <1.1 g/(mL/min); if eGFR <30, consider non-contrast alternatives or weigh risks carefully.",
       "references": [
         "Contrast CT phases overview (Wikipedia):contentReference[oaicite:0]{index=0}",
         "CT pulmonary angiogram practical notes (Wikipedia):contentReference[oaicite:1]{index=1}"
-      ]
+      ],
+      "modifications_suggested": "Reduce contrast volume to 80 mL using a split-bolus technique. Timing remains critical for aortic opacification."
     },
     {
       "protocol_id": "CT_TRAUMA_CHEST_ABD_PELVIS",
@@ -42,7 +43,8 @@
       "renal_safety_notes": "Minimize field-of-view and dose; use alternative imaging if stable and renal risk high.",
       "references": [
         "UW Trauma protocol overview (PDF):contentReference[oaicite:7]{index=7}"
-      ]
+      ],
+      "modifications_suggested": "Consider as a secondary option if additional abdominal/pelvic injury is suspected. If utilized, reduce contrast volume proportionally and consider omitting delayed imaging unless clearly indicated."
     }
   ]
 }

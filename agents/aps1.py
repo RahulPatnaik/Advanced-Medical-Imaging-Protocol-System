@@ -20,6 +20,8 @@ VECTOR_INDEX_PATH = "data/protocol_index.bin"
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
 MODEL = "gemini-2.5-flash-lite"
 RELEVANCE_THRESHOLD = 0.6
+OUTPUT_DIR = "temp"
+OUTPUT_FILE = os.path.join(OUTPUT_DIR, "enhanced_context.json")
 
 client = genai.Client(api_key=GEMINI_API_KEY)
 
@@ -345,11 +347,68 @@ def update_protocol_database_smart(new_protocols: List[Dict]):
     
     return len(added_protocols)
 
-def run_enhanced_agent2_protocol(patient_data: Dict) -> str:
+def generate_enhanced_context(patient_data: Dict, search_performed: bool, added_count: int, error: Optional[str] = None) -> str:
+    """Generate clinical context based on patient data and search outcome, without protocol recommendations."""
+    diagnosis = patient_data.get("primary_diagnosis", "Unknown condition")
+    egfr = patient_data.get("egfr_ckd_epi", "Unknown")
+    map_value = patient_data.get("map_mmhg", "Unknown")
+    admission_type = patient_data.get("admission_type", "Unknown").upper()
+    ckd_stage = patient_data.get("ckd_stage", "Unknown")
+    
+    context = f"Based on KDIGO (Kidney Disease: Improving Global Outcomes) and ACR (American College of Radiology) guidelines, "
+    
+    # Renal function assessment
+    if isinstance(egfr, (int, float)):
+        if egfr < 15:
+            context += f"the patient’s eGFR of {egfr} mL/min/1.73m² indicates {ckd_stage} (dialysis-dependent), with high risk for contrast-induced nephropathy (CIN). "
+        elif egfr < 30:
+            context += f"the patient’s eGFR of {egfr} mL/min/1.73m² indicates {ckd_stage}, with significant risk for contrast-induced nephropathy (CIN). "
+        elif egfr < 60:
+            context += f"the patient’s eGFR of {egfr} mL/min/1.73m² indicates {ckd_stage}, suggesting chronic kidney disease (CKD) and increased risk from iodinated contrast exposure. "
+        else:
+            context += f"the patient’s eGFR of {egfr} mL/min/1.73m² indicates {ckd_stage}, suggesting normal renal function for contrast studies. "
+    else:
+        context += f"renal function (eGFR: {egfr}) is not available, requiring verification before contrast administration. "
+    
+    # Hemodynamic status
+    if isinstance(map_value, (int, float)):
+        if map_value < 50:
+            context += f"Severe hypotension (MAP {map_value} mmHg) increases the risk of contrast-related complications. "
+        elif map_value < 65:
+            context += f"Hypotension (MAP {map_value} mmHg) may exacerbate risks associated with contrast administration. "
+        else:
+            context += f"Stable hemodynamics (MAP {map_value} mmHg) support safer contrast administration. "
+    
+    # Admission context
+    if "EMERG" in admission_type or "EW" in admission_type:
+        context += f"The emergency admission context for {diagnosis} indicates time-sensitive imaging considerations. "
+    else:
+        context += f"The non-emergency admission for {diagnosis} allows for standard imaging planning. "
+    
+    # Search outcome
+    if error:
+        context += f"Database error occurred: {error}. An internet search was performed to identify relevant clinical information. "
+    elif search_performed:
+        if added_count > 0:
+            context += f"An internet search identified {added_count} new relevant sources, which have been added to the protocol database for further evaluation. "
+        else:
+            context += "An internet search was performed, but no new relevant sources were added to the protocol database. "
+    else:
+        context += "Existing clinical information was deemed sufficient, and no additional search was required. "
+    
+    context += "The ACR Manual on Contrast Media advises caution with contrast use, recommending hydration protocols and consideration of alternative imaging modalities when renal or hemodynamic risks are elevated."
+    
+    return context
+
+def run_enhanced_agent2_protocol(patient_data: Dict) -> Dict:
     print("\nAGENT 2: ENHANCED PROTOCOL SELECTION")
     print("=" * 50)
     
     print("Checking existing protocol database...")
+    
+    search_performed = False
+    added_count = 0
+    error = None
     
     try:
         protocols = load_or_create_index(PROTOCOL_DB_PATH, VECTOR_INDEX_PATH)
@@ -374,13 +433,12 @@ def run_enhanced_agent2_protocol(patient_data: Dict) -> str:
         
         if relevance_score >= RELEVANCE_THRESHOLD:
             print(f"Using existing protocols (relevance: {relevance_score:.3f})")
-            selected_protocols = existing_protocols
-            search_method = "existing_database"
         else:
             print(f"Low relevance ({relevance_score:.3f} < {RELEVANCE_THRESHOLD})")
             print("Initiating internet search...")
             
             search_results = enhanced_search_medical_sources(patient_data)
+            search_performed = True
             
             if search_results:
                 print(f"Found {len(search_results)} new sources")
@@ -390,33 +448,37 @@ def run_enhanced_agent2_protocol(patient_data: Dict) -> str:
                 added_count = update_protocol_database_smart(new_protocols)
                 print(f"Added {added_count} new protocols to database")
                 
-                if added_count > 0:
-                    updated_protocols = load_or_create_index(PROTOCOL_DB_PATH, VECTOR_INDEX_PATH)
-                    selected_protocols = vector_search(query, updated_protocols, VECTOR_INDEX_PATH, top_k=3)
-                    search_method = "internet_search_updated"
-                else:
-                    selected_protocols = new_protocols[:2]
-                    search_method = "internet_search_new"
             else:
-                print("No new protocols found, using existing ones anyway")
-                selected_protocols = existing_protocols
-                search_method = "fallback_existing"
+                print("No new protocols found")
                 
     except Exception as e:
         print(f"Database error: {e}")
         print("Falling back to internet search...")
         
         search_results = enhanced_search_medical_sources(patient_data)
-        new_protocols = convert_search_results_to_protocols(search_results, patient_data)
-        selected_protocols = new_protocols[:2]
-        search_method = "fallback_internet"
+        search_performed = True
+        error = str(e)
+        
+        if search_results:
+            new_protocols = convert_search_results_to_protocols(search_results, patient_data)
+            added_count = update_protocol_database_smart(new_protocols)
+            print(f"Added {added_count} new protocols to database")
+        else:
+            print("No new protocols found")
     
-    print(f"Generating decision with {len(selected_protocols)} protocols...")
+    enhanced_context = generate_enhanced_context(patient_data, search_performed, added_count, error)
+    result = {"enhanced_context": enhanced_context}
     
-    decision_data = generate_protocol_decision(patient_data, selected_protocols)
+    # Save the result to temp/enhanced_context.json
+    try:
+        os.makedirs(OUTPUT_DIR, exist_ok=True)
+        with open(OUTPUT_FILE, 'w', encoding='utf-8') as f:
+            json.dump(result, f, indent=2, ensure_ascii=False)
+        print(f"Saved enhanced context to {OUTPUT_FILE}")
+    except Exception as e:
+        print(f"Failed to save enhanced context to {OUTPUT_FILE}: {e}")
     
-    # Format as enhanced string output
-    return format_enhanced_output(patient_data, decision_data, selected_protocols, search_method)
+    return result
 
 def format_enhanced_output(patient_data: Dict, decision_data: Dict, protocols: List[Dict], search_method: str) -> str:
     """Format comprehensive output string using ALL available patient parameters"""
@@ -532,7 +594,6 @@ CLINICAL RECOMMENDATIONS:
     for i, reason in enumerate(rationale, 1):
         output += f"{i}. {reason}\n"
     
-    # Enhanced risk assessment using all available parameters
     output += "\nCOMPREHENSIVE RISK ASSESSMENT:\n"
     
     # Renal risk assessment

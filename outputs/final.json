@@ -1,0 +1,48 @@
+{
+  "recommendations": [
+    "Proceed with CT_TRAUMA_CHEST_ABD_PELVIS, ensuring the protocol includes a dedicated thoracic aorta CTA sequence and a pulmonary arterial phase acquisition.",
+    "Administer pre-contrast intravenous fluids (e.g., 1 L normal saline) to mitigate risk of contrast-induced nephropathy given severe hypotension.",
+    "Perform serial monitoring of renal function (creatinine, BUN) at 24-48 hours post-contrast.",
+    "Continuously monitor hemodynamics during and after contrast administration, with a low threshold for vasopressor support if MAP remains below 60 mmHg."
+  ],
+  "rationale": [
+    "The primary diagnosis of Injury to thoracic aorta mandates a protocol capable of detailed aortic assessment.",
+    "Severe hypotension (MAP 49.3 mmHg) increases risk of CIN, necessitating aggressive hydration.",
+    "Post-contrast renal function monitoring is crucial for early detection of AKI.",
+    "Close hemodynamic monitoring is essential due to the patient's unstable blood pressure."
+  ],
+  "protocol_selection": [
+    {
+      "protocol_id": "CT_TRAUMA_CHEST_ABD_PELVIS",
+      "name": "Trauma CT — Chest, Abdomen & Pelvis with Contrast",
+      "indications": [
+        "blunt/penetrating trauma",
+        "active hemorrhage evaluation"
+      ],
+      "description": "Contrast CT of torso with trauma-focused reformats; may include delayed images as needed.",
+      "contrast_timing": "Portal venous phase, possible delayed imaging to assess hemorrhage.",
+      "contrast_dose": "Standard contrast dose; trauma protocols may include split bolus techniques.",
+      "renal_safety_notes": "Minimize field-of-view and dose; use alternative imaging if stable and renal risk high.",
+      "references": [
+        "UW Trauma protocol overview (PDF):contentReference[oaicite:7]{index=7}"
+      ]
+    },
+    {
+      "protocol_id": "CT_CHEST_ANGIO_PULMONARY_EMBOLISM",
+      "name": "CT Pulmonary Angiography (Chest CTA for PE)",
+      "indications": [
+        "pulmonary embolism",
+        "acute chest pain",
+        "shortness of breath"
+      ],
+      "description": "CT angiography timed for pulmonary arterial phase (6–13 sec post-contrast) to evaluate pulmonary arteries for embolism.",
+      "contrast_timing": "Pulmonary arterial phase: ~6–13 sec post-injection.",
+      "contrast_dose": "Weight-based; ~100–150 mL iodinated contrast (300 mg I/mL); follow ACR Manual.",
+      "renal_safety_notes": "Ensure contrast-to-eGFR ratio <1.1 g/(mL/min); if eGFR <30, consider non-contrast alternatives or weigh risks carefully.",
+      "references": [
+        "Contrast CT phases overview (Wikipedia):contentReference[oaicite:0]{index=0}",
+        "CT pulmonary angiogram practical notes (Wikipedia):contentReference[oaicite:1]{index=1}"
+      ]
+    }
+  ]
+}

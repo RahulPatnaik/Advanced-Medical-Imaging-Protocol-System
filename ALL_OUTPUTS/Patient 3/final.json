@@ -1,0 +1,50 @@
+{
+  "recommendations": [
+    "Prioritize Ventilation-Perfusion (V/Q) scan for suspected Pulmonary Embolism (PE) due to severe CKD and hemodynamic instability.",
+    "If CT Pulmonary Angiography (CTPA) is essential, implement modified protocol with low-osmolar, low-iodine contrast, limited volume (<= 40 mL), low kVp, and iterative reconstruction.",
+    "Obtain bedside transthoracic echocardiogram to assess for right ventricular strain, aiding PE diagnosis without contrast.",
+    "Stabilize blood pressure with vasopressors and manage hyperkalemia urgently before any contrast administration."
+  ],
+  "rationale": [
+    "Patient has Stage 4 CKD (eGFR 22) and hypotension (MAP 57 mmHg), significantly increasing risk for contrast-induced nephropathy and hemodynamic compromise.",
+    "Hyperkalemia (K+ 5.8 mEq/L) requires immediate management prior to contrast use.",
+    "Anemia (Hb 9.5 g/dL) may necessitate transfusion consideration before procedures.",
+    "V/Q scan is the preferred first-line modality for PE in patients with severe renal impairment.",
+    "Modified CTPA protocol aims to minimize contrast volume and nephrotoxicity."
+  ],
+  "protocol_selection": [
+    {
+      "protocol_id": "CT_CHEST_ANGIO_PULMONARY_EMBOLISM",
+      "name": "CT Pulmonary Angiography (Chest CTA for PE)",
+      "indications": [
+        "pulmonary embolism",
+        "acute chest pain",
+        "shortness of breath"
+      ],
+      "description": "CT angiography timed for pulmonary arterial phase (6–13 sec post-contrast) to evaluate pulmonary arteries for embolism.",
+      "contrast_timing": "Pulmonary arterial phase: ~6–13 sec post-injection.",
+      "contrast_dose": "Weight-based; ~100–150 mL iodinated contrast (300 mg I/mL); follow ACR Manual. **MODIFIED DOSE REQUIRED DUE TO CKD AND HYPOTENSION**",
+      "renal_safety_notes": "Ensure contrast-to-eGFR ratio <1.1 g/(mL/min); if eGFR <30, consider non-contrast alternatives or weigh risks carefully. **PATIENT HAS STAGE 4 CKD AND IS HYPOTENSIVE, REQUIRES SIGNIFICANT DOSE REDUCTION AND CAUTION.**",
+      "references": [
+        "Contrast CT phases overview (Wikipedia):contentReference[oaicite:0]{index=0}",
+        "CT pulmonary angiogram practical notes (Wikipedia):contentReference[oaicite:1]{index=1}"
+      ]
+    },
+    {
+      "protocol_id": "VQC_CHEST_VENTILATION_PERFUSION",
+      "name": "Ventilation-Perfusion (V/Q) Scan",
+      "indications": [
+        "pulmonary embolism",
+        "shortness of breath",
+        "suspected PE in renal impairment"
+      ],
+      "description": "Radioisotope imaging to assess ventilation and perfusion of the lungs, useful for PE diagnosis, particularly in renal dysfunction.",
+      "contrast_timing": "N/A - Non-contrast imaging.",
+      "contrast_dose": "N/A.",
+      "renal_safety_notes": "Ideal for patients with severe CKD and contraindications to iodinated contrast agents.",
+      "references": [
+        "ACR Practice Parameter for the Performance of Ventilation/Perfusion Imaging:contentReference[oaicite:2]{index=2}"
+      ]
+    }
+  ]
+}

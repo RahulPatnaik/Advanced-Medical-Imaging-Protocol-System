@@ -1,27 +1,27 @@
 {
   "issues": [
-    "Renal tool summary includes contradictory statements (e.g., \"Missing BMI or creatinine\" despite creatinine being present) and lacks lab timestamps, reducing auditability.",
-    "Renal tool does not account for the patient's profound hypotension (MAP 49.3 mmHg) and its impact on contrast safety, despite this being a key risk factor.",
-    "Agent 2 recommends a full torso trauma CT with contrast, which may expose the patient to unnecessary contrast volume when the primary clinical question is evaluation of the thoracic aortic injury.",
-    "Agent 2 does not specify a reduced contrast dose or alternative low‑contrast protocols for a hemodynamically unstable patient, despite recommending fluid administration.",
-    "No explicit plan for post‑contrast renal monitoring (e.g., repeat creatinine) despite the contrast administration in a high‑risk hemodynamic state.",
-    "Protocol selection lacks an explicit recommendation for a focused chest CTA (aortic CTA) that would limit contrast volume relative to the broader trauma protocol."
+    "Renal tool flagged missing BMI and lab timestamps, limiting precise contrast dose calculation and renal risk assessment.",
+    "Agent 2 selected a CT Pulmonary Angiography protocol (CT_CHEST_ANGIO_PULMONARY_EMBOLISM) that is not optimized for evaluation of a traumatic thoracic aortic injury.",
+    "Severe hypotension (MAP 49.3 mmHg, SBP 78 mmHg) markedly increases the risk of contrast‑induced nephropathy and may predispose to hemodynamic decompensation during contrast administration, yet the recommendations focus mainly on renal hydration without addressing blood pressure stabilization.",
+    "No explicit plan for contrast dose reduction, use of low‑ or iso‑osmolar agents, or split‑bolus technique to minimize nephrotoxic load.",
+    "Lack of alternative imaging strategies (e.g., dedicated CT aortography, transesophageal echocardiography, MRI) despite the high‑risk hemodynamic profile.",
+    "Hydration recommendation is vague; no specific fluid type, rate, or timing relative to contrast is provided."
   ],
   "recommendations": [
-    "Administer 500‑1000 mL of isotonic intravenous fluid (e.g., normal saline) prior to contrast administration to mitigate the risk of contrast‑induced nephropathy and support hemodynamics.",
-    "Use a low‑contrast volume protocol (e.g., 80 mL total) with a split‑bolus technique, or consider weight‑based reduction, especially if the trauma protocol is applied.",
-    "Prefer a focused chest CTA (aortic CTA) rather than a full chest‑abdomen‑pelvis scan to limit contrast exposure, unless abdominal/pelvic injury is also clinically suspected.",
-    "If a full trauma protocol is still required, adjust the contrast dose proportionally and consider omitting delayed imaging unless there is clear clinical indication.",
-    "Monitor blood pressure closely during contrast injection; pause or abort if MAP falls further.",
-    "Obtain and record timestamps for all relevant labs (creatinine, BUN, electrolytes) to ensure accurate renal risk assessment.",
-    "Document patient weight and calculate BMI; include it in future renal tool runs.",
-    "Post‑contrast, obtain repeat serum creatinine and eGFR at 24–48 h to detect any early renal impairment.",
-    "If the patient remains hemodynamically unstable (MAP < 50 mmHg), consider alternative imaging (e.g., non‑contrast MRI or echocardiography) for initial assessment, reserving contrast-enhanced CT for when the patient stabilizes.",
-    "Update the renal tool's summary logic to avoid contradictory statements and to integrate hemodynamic parameters (e.g., MAP, heart rate) into the risk assessment."
+    "Select a dedicated CT Aortography protocol (e.g., 'CT Thoracic Aorta Angiography') rather than a pulmonary embolism CTA; this protocol provides optimal arterial phase timing for aortic injury assessment.",
+    "Obtain the patient’s weight and calculate BMI to enable weight‑based contrast dosing; aim for the lowest effective iodine load (e.g., 1.5 mL/kg of low‑ or iso‑osmolar contrast, maximum 100 mL).",
+    "Stabilize hemodynamics before contrast administration: initiate vasopressor support as needed to achieve MAP ≥65 mmHg, then proceed with imaging.",
+    "Implement aggressive IV hydration: 1 L isotonic saline over 30 min pre‑contrast, followed by 1 L over the next 2 h post‑contrast, adjusting for cardiac status.",
+    "Use low‑ or iso‑osmolar, non‑ionic contrast agents and consider a split‑bolus technique to reduce peak iodine concentration.",
+    "Monitor renal function (serum creatinine, eGFR) at baseline, 24 h, and 48 h after contrast exposure; have a contingency plan for dialysis if acute kidney injury develops.",
+    "Document exact timestamps for all relevant labs (creatinine, BUN, electrolytes) to improve future renal risk assessments.",
+    "If MAP cannot be safely corrected, consider non‑contrast imaging alternatives: transesophageal echocardiography (TEE) for aortic injury, or MRI angiography if feasible.",
+    "Include a post‑procedure hemodynamic monitoring order set: continuous arterial blood pressure, urine output, and repeat labs.",
+    "Educate the care team on the specific renal safety notes from the chosen protocol, ensuring contrast‑to‑eGFR ratio remains <1.0 g/(mL·min)."
   ],
-  "confidence": 0.8200000000000001,
-  "agent2_confidence": 0.84,
-  "timestamp": "2025-08-15T15:48:15.574334Z",
+  "confidence": 0.78,
+  "agent2_confidence": 0.45,
+  "timestamp": "2025-08-26T10:42:27.089664Z",
   "tool_outputs": {
     "renal": {
       "tool_id": "renal_tool_v2",
@@ -29,7 +29,7 @@
         {
           "id": "egfr_ckd_epi",
           "units": "ml/min/1.73m2",
-          "timestamp": "2025-08-15T15:48:01.135366Z",
+          "timestamp": "2025-08-26T10:42:23.853828Z",
           "priority": "critical",
           "value": 135.1,
           "status": "pass",
@@ -38,7 +38,7 @@
         {
           "id": "creatinine_mg_dl",
           "units": "mg/dL",
-          "timestamp": "2025-08-15T15:48:01.135373Z",
+          "timestamp": "2025-08-26T10:42:23.853836Z",
           "priority": "critical",
           "value": 0.5,
           "status": "pass",
@@ -46,7 +46,7 @@
         },
         {
           "id": "bun_creatinine_ratio",
-          "timestamp": "2025-08-15T15:48:01.135376Z",
+          "timestamp": "2025-08-26T10:42:23.853842Z",
           "priority": "important",
           "value": 16.0,
           "status": "pass",
@@ -55,7 +55,7 @@
         {
           "id": "potassium_mmol_l",
           "units": "mEq/L",
-          "timestamp": "2025-08-15T15:48:01.135382Z",
+          "timestamp": "2025-08-26T10:42:23.853851Z",
           "priority": "important",
           "value": 3.6,
           "status": "pass",
@@ -72,108 +72,108 @@
       },
       "metadata": {
         "version": "2.0.0",
-        "run_ts": "2025-08-15T15:48:01.135397Z"
+        "run_ts": "2025-08-26T10:42:23.853870Z"
       }
     }
   },
-  "llm_raw": "{\n  \"issues\": [\n    \"Renal tool summary includes contradictory statements (e.g., \\\"Missing BMI or creatinine\\\" despite creatinine being present) and lacks lab timestamps, reducing auditability.\",\n    \"Renal tool does not account for the patient's profound hypotension (MAP 49.3 mmHg) and its impact on contrast safety, despite this being a key risk factor.\",\n    \"Agent 2 recommends a full torso trauma CT with contrast, which may expose the patient to unnecessary contrast volume when the primary clinical question is evaluation of the thoracic aortic injury.\",\n    \"Agent 2 does not specify a reduced contrast dose or alternative low‑contrast protocols for a hemodynamically unstable patient, despite recommending fluid administration.\",\n    \"No explicit plan for post‑contrast renal monitoring (e.g., repeat creatinine) despite the contrast administration in a high‑risk hemodynamic state.\",\n    \"Protocol selection lacks an explicit recommendation for a focused chest CTA (aortic CTA) that would limit contrast volume relative to the broader trauma protocol.\"\n  ],\n  \"recommendations\": [\n    \"Administer 500‑1000 mL of isotonic intravenous fluid (e.g., normal saline) prior to contrast administration to mitigate the risk of contrast‑induced nephropathy and support hemodynamics.\",\n    \"Use a low‑contrast volume protocol (e.g., 80 mL total) with a split‑bolus technique, or consider weight‑based reduction, especially if the trauma protocol is applied.\",\n    \"Prefer a focused chest CTA (aortic CTA) rather than a full chest‑abdomen‑pelvis scan to limit contrast exposure, unless abdominal/pelvic injury is also clinically suspected.\",\n    \"If a full trauma protocol is still required, adjust the contrast dose proportionally and consider omitting delayed imaging unless there is clear clinical indication.\",\n    \"Monitor blood pressure closely during contrast injection; pause or abort if MAP falls further.\",\n    \"Obtain and record timestamps for all relevant labs (creatinine, BUN, electrolytes) to ensure accurate renal risk assessment.\",\n    \"Document patient weight and calculate BMI; include it in future renal tool runs.\",\n    \"Post‑contrast, obtain repeat serum creatinine and eGFR at 24–48 h to detect any early renal impairment.\",\n    \"If the patient remains hemodynamically unstable (MAP < 50 mmHg), consider alternative imaging (e.g., non‑contrast MRI or echocardiography) for initial assessment, reserving contrast-enhanced CT for when the patient stabilizes.\",\n    \"Update the renal tool's summary logic to avoid contradictory statements and to integrate hemodynamic parameters (e.g., MAP, heart rate) into the risk assessment.\"\n  ],\n  \"confidence\": 0.92\n}",
+  "llm_raw": "{\n  \"issues\": [\n    \"Renal tool flagged missing BMI and lab timestamps, limiting precise contrast dose calculation and renal risk assessment.\",\n    \"Agent 2 selected a CT Pulmonary Angiography protocol (CT_CHEST_ANGIO_PULMONARY_EMBOLISM) that is not optimized for evaluation of a traumatic thoracic aortic injury.\",\n    \"Severe hypotension (MAP 49.3 mmHg, SBP 78 mmHg) markedly increases the risk of contrast‑induced nephropathy and may predispose to hemodynamic decompensation during contrast administration, yet the recommendations focus mainly on renal hydration without addressing blood pressure stabilization.\",\n    \"No explicit plan for contrast dose reduction, use of low‑ or iso‑osmolar agents, or split‑bolus technique to minimize nephrotoxic load.\",\n    \"Lack of alternative imaging strategies (e.g., dedicated CT aortography, transesophageal echocardiography, MRI) despite the high‑risk hemodynamic profile.\",\n    \"Hydration recommendation is vague; no specific fluid type, rate, or timing relative to contrast is provided.\"\n  ],\n  \"recommendations\": [\n    \"Select a dedicated CT Aortography protocol (e.g., 'CT Thoracic Aorta Angiography') rather than a pulmonary embolism CTA; this protocol provides optimal arterial phase timing for aortic injury assessment.\",\n    \"Obtain the patient’s weight and calculate BMI to enable weight‑based contrast dosing; aim for the lowest effective iodine load (e.g., 1.5 mL/kg of low‑ or iso‑osmolar contrast, maximum 100 mL).\",\n    \"Stabilize hemodynamics before contrast administration: initiate vasopressor support as needed to achieve MAP ≥65 mmHg, then proceed with imaging.\",\n    \"Implement aggressive IV hydration: 1 L isotonic saline over 30 min pre‑contrast, followed by 1 L over the next 2 h post‑contrast, adjusting for cardiac status.\",\n    \"Use low‑ or iso‑osmolar, non‑ionic contrast agents and consider a split‑bolus technique to reduce peak iodine concentration.\",\n    \"Monitor renal function (serum creatinine, eGFR) at baseline, 24 h, and 48 h after contrast exposure; have a contingency plan for dialysis if acute kidney injury develops.\",\n    \"Document exact timestamps for all relevant labs (creatinine, BUN, electrolytes) to improve future renal risk assessments.\",\n    \"If MAP cannot be safely corrected, consider non‑contrast imaging alternatives: transesophageal echocardiography (TEE) for aortic injury, or MRI angiography if feasible.\",\n    \"Include a post‑procedure hemodynamic monitoring order set: continuous arterial blood pressure, urine output, and repeat labs.\",\n    \"Educate the care team on the specific renal safety notes from the chosen protocol, ensuring contrast‑to‑eGFR ratio remains <1.0 g/(mL·min).\"\n  ],\n  \"confidence\": 0.88\n}",
   "hallucination_analysis": {
     "statement_assessments": [
       {
-        "text": "Renal tool summary includes contradictory statements (e.g., \"Missing BMI or creatinine\" despite creatinine being present) and lacks lab timestamps, reducing auditability.",
+        "text": "Renal tool flagged missing BMI and lab timestamps, limiting precise contrast dose calculation and renal risk assessment.",
         "type": "issue",
+        "classification": "supported",
+        "rationale": "matches known fact 'f'"
+      },
+      {
+        "text": "Agent 2 selected a CT Pulmonary Angiography protocol (CT_CHEST_ANGIO_PULMONARY_EMBOLISM) that is not optimized for evaluation of a traumatic thoracic aortic injury.",
+        "type": "issue",
+        "classification": "supported",
+        "rationale": "matches known fact 'f'"
+      },
+      {
+        "text": "Severe hypotension (MAP 49.3 mmHg, SBP 78 mmHg) markedly increases the risk of contrast‑induced nephropathy and may predispose to hemodynamic decompensation during contrast administration, yet the recommendations focus mainly on renal hydration without addressing blood pressure stabilization.",
+        "type": "issue",
+        "classification": "supported",
+        "rationale": "matches known fact '49.3'"
+      },
+      {
+        "text": "No explicit plan for contrast dose reduction, use of low‑ or iso‑osmolar agents, or split‑bolus technique to minimize nephrotoxic load.",
+        "type": "issue",
+        "classification": "supported",
+        "rationale": "matches known fact 'f'"
+      },
+      {
+        "text": "Lack of alternative imaging strategies (e.g., dedicated CT aortography, transesophageal echocardiography, MRI) despite the high‑risk hemodynamic profile.",
+        "type": "issue",
+        "classification": "supported",
+        "rationale": "matches known fact 'f'"
+      },
+      {
+        "text": "Hydration recommendation is vague; no specific fluid type, rate, or timing relative to contrast is provided.",
+        "type": "issue",
+        "classification": "supported",
+        "rationale": "matches known fact 'f'"
+      },
+      {
+        "text": "Select a dedicated CT Aortography protocol (e.g., 'CT Thoracic Aorta Angiography') rather than a pulmonary embolism CTA; this protocol provides optimal arterial phase timing for aortic injury assessment.",
+        "type": "recommendation",
+        "classification": "supported",
+        "rationale": "matches known fact 'f'"
+      },
+      {
+        "text": "Obtain the patient’s weight and calculate BMI to enable weight‑based contrast dosing; aim for the lowest effective iodine load (e.g., 1.5 mL/kg of low‑ or iso‑osmolar contrast, maximum 100 mL).",
+        "type": "recommendation",
+        "classification": "supported",
+        "rationale": "matches known fact '0'"
+      },
+      {
+        "text": "Stabilize hemodynamics before contrast administration: initiate vasopressor support as needed to achieve MAP ≥65 mmHg, then proceed with imaging.",
+        "type": "recommendation",
+        "classification": "supported",
+        "rationale": "matches known fact 'f'"
+      },
+      {
+        "text": "Implement aggressive IV hydration: 1 L isotonic saline over 30 min pre‑contrast, followed by 1 L over the next 2 h post‑contrast, adjusting for cardiac status.",
+        "type": "recommendation",
+        "classification": "supported",
+        "rationale": "matches known fact '0'"
+      },
+      {
+        "text": "Use low‑ or iso‑osmolar, non‑ionic contrast agents and consider a split‑bolus technique to reduce peak iodine concentration.",
+        "type": "recommendation",
         "classification": "unverified",
         "rationale": "no direct or inferred support found"
       },
       {
-        "text": "Renal tool does not account for the patient's profound hypotension (MAP 49.3 mmHg) and its impact on contrast safety, despite this being a key risk factor.",
-        "type": "issue",
-        "classification": "supported",
-        "rationale": "matches known fact 'f'"
-      },
-      {
-        "text": "Agent 2 recommends a full torso trauma CT with contrast, which may expose the patient to unnecessary contrast volume when the primary clinical question is evaluation of the thoracic aortic injury.",
-        "type": "issue",
-        "classification": "supported",
-        "rationale": "matches known fact 'f'"
-      },
-      {
-        "text": "Agent 2 does not specify a reduced contrast dose or alternative low‑contrast protocols for a hemodynamically unstable patient, despite recommending fluid administration.",
-        "type": "issue",
-        "classification": "supported",
-        "rationale": "matches known fact 'f'"
-      },
-      {
-        "text": "No explicit plan for post‑contrast renal monitoring (e.g., repeat creatinine) despite the contrast administration in a high‑risk hemodynamic state.",
-        "type": "issue",
-        "classification": "supported",
-        "rationale": "matches known fact 'f'"
-      },
-      {
-        "text": "Protocol selection lacks an explicit recommendation for a focused chest CTA (aortic CTA) that would limit contrast volume relative to the broader trauma protocol.",
-        "type": "issue",
-        "classification": "supported",
-        "rationale": "matches known fact 'f'"
-      },
-      {
-        "text": "Administer 500‑1000 mL of isotonic intravenous fluid (e.g., normal saline) prior to contrast administration to mitigate the risk of contrast‑induced nephropathy and support hemodynamics.",
+        "text": "Monitor renal function (serum creatinine, eGFR) at baseline, 24 h, and 48 h after contrast exposure; have a contingency plan for dialysis if acute kidney injury develops.",
         "type": "recommendation",
         "classification": "supported",
         "rationale": "matches known fact 'f'"
       },
       {
-        "text": "Use a low‑contrast volume protocol (e.g., 80 mL total) with a split‑bolus technique, or consider weight‑based reduction, especially if the trauma protocol is applied.",
+        "text": "Document exact timestamps for all relevant labs (creatinine, BUN, electrolytes) to improve future renal risk assessments.",
         "type": "recommendation",
         "classification": "supported",
         "rationale": "matches known fact 'f'"
       },
       {
-        "text": "Prefer a focused chest CTA (aortic CTA) rather than a full chest‑abdomen‑pelvis scan to limit contrast exposure, unless abdominal/pelvic injury is also clinically suspected.",
+        "text": "If MAP cannot be safely corrected, consider non‑contrast imaging alternatives: transesophageal echocardiography (TEE) for aortic injury, or MRI angiography if feasible.",
         "type": "recommendation",
         "classification": "supported",
         "rationale": "matches known fact 'f'"
       },
       {
-        "text": "If a full trauma protocol is still required, adjust the contrast dose proportionally and consider omitting delayed imaging unless there is clear clinical indication.",
-        "type": "recommendation",
-        "classification": "supported",
-        "rationale": "matches known fact 'f'"
-      },
-      {
-        "text": "Monitor blood pressure closely during contrast injection; pause or abort if MAP falls further.",
-        "type": "recommendation",
-        "classification": "supported",
-        "rationale": "matches known fact 'f'"
-      },
-      {
-        "text": "Obtain and record timestamps for all relevant labs (creatinine, BUN, electrolytes) to ensure accurate renal risk assessment.",
-        "type": "recommendation",
-        "classification": "supported",
-        "rationale": "matches known fact 'f'"
-      },
-      {
-        "text": "Document patient weight and calculate BMI; include it in future renal tool runs.",
-        "type": "recommendation",
-        "classification": "supported",
-        "rationale": "matches known fact 'f'"
-      },
-      {
-        "text": "Post‑contrast, obtain repeat serum creatinine and eGFR at 24–48 h to detect any early renal impairment.",
-        "type": "recommendation",
-        "classification": "supported",
-        "rationale": "matches known fact 'f'"
-      },
-      {
-        "text": "If the patient remains hemodynamically unstable (MAP < 50 mmHg), consider alternative imaging (e.g., non‑contrast MRI or echocardiography) for initial assessment, reserving contrast-enhanced CT for when the patient stabilizes.",
-        "type": "recommendation",
-        "classification": "supported",
-        "rationale": "matches known fact 'f'"
-      },
-      {
-        "text": "Update the renal tool's summary logic to avoid contradictory statements and to integrate hemodynamic parameters (e.g., MAP, heart rate) into the risk assessment.",
+        "text": "Include a post‑procedure hemodynamic monitoring order set: continuous arterial blood pressure, urine output, and repeat labs.",
         "type": "recommendation",
         "classification": "supported",
         "rationale": "hemodynamic instability supported by MAP 49.3"
+      },
+      {
+        "text": "Educate the care team on the specific renal safety notes from the chosen protocol, ensuring contrast‑to‑eGFR ratio remains <1.0 g/(mL·min).",
+        "type": "recommendation",
+        "classification": "supported",
+        "rationale": "matches known fact '0'"
       }
     ],
     "counts": {
@@ -222,40 +222,40 @@
         "data_completeness_pct": 0.95
       },
       "raw_strings_sample": [
-        "97.0",
-        "stage 1 (normal)",
-        "18",
-        "low renal risk for contrast.",
+        "135.1",
+        "33558396",
+        "creatinine within normal range.",
         "43.0",
-        "10.3",
-        "bun_creatinine_ratio",
-        "8.0",
-        "f",
-        "0"
+        "0.95",
+        "49.3",
+        "stage 1 (normal)",
+        "bun/cr ratio normal.",
+        "injury to thoracic aorta",
+        "229.0"
       ]
     }
   },
   "feedback": {
     "issues": [
-      "Renal tool summary includes contradictory statements (e.g., \"Missing BMI or creatinine\" despite creatinine being present) and lacks lab timestamps, reducing auditability.",
-      "Renal tool does not account for the patient's profound hypotension (MAP 49.3 mmHg) and its impact on contrast safety, despite this being a key risk factor.",
-      "Agent 2 recommends a full torso trauma CT with contrast, which may expose the patient to unnecessary contrast volume when the primary clinical question is evaluation of the thoracic aortic injury.",
-      "Agent 2 does not specify a reduced contrast dose or alternative low‑contrast protocols for a hemodynamically unstable patient, despite recommending fluid administration.",
-      "No explicit plan for post‑contrast renal monitoring (e.g., repeat creatinine) despite the contrast administration in a high‑risk hemodynamic state.",
-      "Protocol selection lacks an explicit recommendation for a focused chest CTA (aortic CTA) that would limit contrast volume relative to the broader trauma protocol."
+      "Renal tool flagged missing BMI and lab timestamps, limiting precise contrast dose calculation and renal risk assessment.",
+      "Agent 2 selected a CT Pulmonary Angiography protocol (CT_CHEST_ANGIO_PULMONARY_EMBOLISM) that is not optimized for evaluation of a traumatic thoracic aortic injury.",
+      "Severe hypotension (MAP 49.3 mmHg, SBP 78 mmHg) markedly increases the risk of contrast‑induced nephropathy and may predispose to hemodynamic decompensation during contrast administration, yet the recommendations focus mainly on renal hydration without addressing blood pressure stabilization.",
+      "No explicit plan for contrast dose reduction, use of low‑ or iso‑osmolar agents, or split‑bolus technique to minimize nephrotoxic load.",
+      "Lack of alternative imaging strategies (e.g., dedicated CT aortography, transesophageal echocardiography, MRI) despite the high‑risk hemodynamic profile.",
+      "Hydration recommendation is vague; no specific fluid type, rate, or timing relative to contrast is provided."
     ],
     "recommendations": [
-      "Administer 500‑1000 mL of isotonic intravenous fluid (e.g., normal saline) prior to contrast administration to mitigate the risk of contrast‑induced nephropathy and support hemodynamics.",
-      "Use a low‑contrast volume protocol (e.g., 80 mL total) with a split‑bolus technique, or consider weight‑based reduction, especially if the trauma protocol is applied.",
-      "Prefer a focused chest CTA (aortic CTA) rather than a full chest‑abdomen‑pelvis scan to limit contrast exposure, unless abdominal/pelvic injury is also clinically suspected.",
-      "If a full trauma protocol is still required, adjust the contrast dose proportionally and consider omitting delayed imaging unless there is clear clinical indication.",
-      "Monitor blood pressure closely during contrast injection; pause or abort if MAP falls further.",
-      "Obtain and record timestamps for all relevant labs (creatinine, BUN, electrolytes) to ensure accurate renal risk assessment.",
-      "Document patient weight and calculate BMI; include it in future renal tool runs.",
-      "Post‑contrast, obtain repeat serum creatinine and eGFR at 24–48 h to detect any early renal impairment.",
-      "If the patient remains hemodynamically unstable (MAP < 50 mmHg), consider alternative imaging (e.g., non‑contrast MRI or echocardiography) for initial assessment, reserving contrast-enhanced CT for when the patient stabilizes.",
-      "Update the renal tool's summary logic to avoid contradictory statements and to integrate hemodynamic parameters (e.g., MAP, heart rate) into the risk assessment."
+      "Select a dedicated CT Aortography protocol (e.g., 'CT Thoracic Aorta Angiography') rather than a pulmonary embolism CTA; this protocol provides optimal arterial phase timing for aortic injury assessment.",
+      "Obtain the patient’s weight and calculate BMI to enable weight‑based contrast dosing; aim for the lowest effective iodine load (e.g., 1.5 mL/kg of low‑ or iso‑osmolar contrast, maximum 100 mL).",
+      "Stabilize hemodynamics before contrast administration: initiate vasopressor support as needed to achieve MAP ≥65 mmHg, then proceed with imaging.",
+      "Implement aggressive IV hydration: 1 L isotonic saline over 30 min pre‑contrast, followed by 1 L over the next 2 h post‑contrast, adjusting for cardiac status.",
+      "Use low‑ or iso‑osmolar, non‑ionic contrast agents and consider a split‑bolus technique to reduce peak iodine concentration.",
+      "Monitor renal function (serum creatinine, eGFR) at baseline, 24 h, and 48 h after contrast exposure; have a contingency plan for dialysis if acute kidney injury develops.",
+      "Document exact timestamps for all relevant labs (creatinine, BUN, electrolytes) to improve future renal risk assessments.",
+      "If MAP cannot be safely corrected, consider non‑contrast imaging alternatives: transesophageal echocardiography (TEE) for aortic injury, or MRI angiography if feasible.",
+      "Include a post‑procedure hemodynamic monitoring order set: continuous arterial blood pressure, urine output, and repeat labs.",
+      "Educate the care team on the specific renal safety notes from the chosen protocol, ensuring contrast‑to‑eGFR ratio remains <1.0 g/(mL·min)."
     ],
-    "confidence": 0.8200000000000001
+    "confidence": 0.78
   }
 }

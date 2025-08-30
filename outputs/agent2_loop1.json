@@ -1,16 +1,34 @@
 {
   "recommendations": [
-    "Administer intravenous fluids prior to contrast administration to mitigate risk of contrast-induced nephropathy.",
-    "Consider a lower contrast volume or a split-bolus technique if using CTA protocols.",
-    "Evaluate the need for delayed imaging carefully, considering the patient's hemodynamic status."
+    "Consider a CT Chest with Angiography for detailed assessment of the thoracic aorta and vascular structures given the primary diagnosis.",
+    "Ensure adequate hydration prior to and following contrast administration to mitigate potential renal insult.",
+    "Monitor hemodynamic status closely, particularly blood pressure, during and after contrast administration.",
+    "Explore non-contrast imaging options if contrast administration is deemed too high risk given the severe hypotension."
   ],
   "rationale": [
-    "Patient has severe hypotension (MAP 49.3 mmHg), increasing risk of contrast-related complications.",
-    "Patient's eGFR is normal (Stage 1 CKD), but hemodynamic instability warrants caution.",
-    "Injury to thoracic aorta is the primary diagnosis, and CTA is often utilized for this.",
-    "ACR Manual on Contrast Media advises caution with contrast use in hypotensive patients."
+    "Primary diagnosis of 'Injury to thoracic aorta' directly aligns with the indications for CT Chest Angiography.",
+    "Severe hypotension (MAP 49.3 mmHg) is a significant risk factor for contrast-induced nephropathy and requires careful consideration of hydration and contrast protocols.",
+    "Stage 1 CKD does not preclude contrast use, but the hemodynamic instability warrants enhanced vigilance and mitigation strategies.",
+    "The trauma protocol is less specific to the aortic injury, while CT Angiography is optimized for vascular assessment."
   ],
   "protocol_selection": [
+    {
+      "protocol_id": "CT_CHEST_ANGIO_PULMONARY_EMBOLISM",
+      "name": "CT Pulmonary Angiography (Chest CTA for PE)",
+      "indications": [
+        "pulmonary embolism",
+        "acute chest pain",
+        "shortness of breath"
+      ],
+      "description": "CT angiography timed for pulmonary arterial phase (6–13 sec post-contrast) to evaluate pulmonary arteries for embolism.",
+      "contrast_timing": "Pulmonary arterial phase: ∼6–13 sec post-injection.",
+      "contrast_dose": "Weight-based; ~100–150 mL iodinated contrast (300 mg I/mL); follow ACR Manual.",
+      "renal_safety_notes": "Ensure contrast-to-eGFR ratio <1.1 g/(mL/min); if eGFR <30, consider non-contrast alternatives or weigh risks carefully.",
+      "references": [
+        "Contrast CT phases overview (Wikipedia):contentReference[oaicite:0]{index=0}",
+        "CT pulmonary angiogram practical notes (Wikipedia):contentReference[oaicite:1]{index=1}"
+      ]
+    },
     {
       "protocol_id": "CT_TRAUMA_CHEST_ABD_PELVIS",
       "name": "Trauma CT — Chest, Abdomen & Pelvis with Contrast",
@@ -24,23 +42,6 @@
       "renal_safety_notes": "Minimize field-of-view and dose; use alternative imaging if stable and renal risk high.",
       "references": [
         "UW Trauma protocol overview (PDF):contentReference[oaicite:7]{index=7}"
-      ]
-    },
-    {
-      "protocol_id": "CT_CHEST_ANGIO_PULMONARY_EMBOLISM",
-      "name": "CT Pulmonary Angiography (Chest CTA for PE)",
-      "indications": [
-        "pulmonary embolism",
-        "acute chest pain",
-        "shortness of breath"
-      ],
-      "description": "CT angiography timed for pulmonary arterial phase (6–13 sec post-contrast) to evaluate pulmonary arteries for embolism.",
-      "contrast_timing": "Pulmonary arterial phase: ~6–13 sec post-injection.",
-      "contrast_dose": "Weight-based; ~100–150 mL iodinated contrast (300 mg I/mL); follow ACR Manual.",
-      "renal_safety_notes": "Ensure contrast-to-eGFR ratio <1.1 g/(mL/min); if eGFR <30, consider non-contrast alternatives or weigh risks carefully.",
-      "references": [
-        "Contrast CT phases overview (Wikipedia):contentReference[oaicite:0]{index=0}",
-        "CT pulmonary angiogram practical notes (Wikipedia):contentReference[oaicite:1]{index=1}"
       ]
     }
   ]

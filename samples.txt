@@ -1,0 +1,150 @@
+{
+  "sample_patient": {
+    "subject_id": 10014729,
+    "hadm_id": 28889419,
+    "stay_id": 33558396,
+    "gender": "F",
+    "age": 21,
+    "race": "WHITE - OTHER EUROPEAN",
+    "admission_type": "SURGICAL SAME DAY ADMISSION",
+    "insurance": "Other",
+    "primary_diagnosis": "Injury to thoracic aorta",
+    "hospital_expire_flag": 0,
+    "los_hospital_days": 2.47,
+    "los_icu_days": 2.47,
+    "first_careunit": "Cardiac Vascular Intensive Care Unit (CVICU)",
+    "last_careunit": "Cardiac Vascular Intensive Care Unit (CVICU)",
+    "creatinine_mg_dl": 0.5,
+    "bun_mg_dl": 8.0,
+    "glucose_mg_dl": 76.0,
+    "hemoglobin_g_dl": 10.3,
+    "hematocrit_pct": 29.9,
+    "platelet_count": 229.0,
+    "wbc_count": 6.9,
+    "sodium_meq_l": 137.0,
+    "potassium_meq_l": 3.6,
+    "chloride_meq_l": 97.0,
+    "bicarbonate_meq_l": 25.0,
+    "egfr_ckd_epi": 135.1,
+    "ckd_stage": "Stage 1 (Normal)",
+    "bun_creatinine_ratio": 16.0,
+    "heart_rate_bpm": 107,
+    "systolic_bp_mmhg": 78,
+    "diastolic_bp_mmhg": 35,
+    "map_mmhg": 49.3,
+    "pulse_pressure_mmhg": 43.0,
+    "temperature_f": 99.1,
+    "spo2_pct": 98.0,
+    "respiratory_rate": 18,
+    "data_completeness_pct": 0.95
+  }
+}
+
+
+
+
+
+{
+  "sample_patient": {
+    "subject_id": 20028931,
+    "hadm_id": 34567891,
+    "stay_id": 44551234,
+    "gender": "F",
+    "age": 72,
+    "race": "WHITE",
+    "admission_type": "EMERGENCY",
+    "insurance": "Medicare",
+    "primary_diagnosis": "Right-sided chest pain with history of diabetes and hypertension",
+    "hospital_expire_flag": 0,
+    "los_hospital_days": 4.2,
+    "los_icu_days": 3.7,
+    "first_careunit": "Medical Intensive Care Unit (MICU)",
+    "last_careunit": "Medical Intensive Care Unit (MICU)",
+
+    "creatinine_mg_dl": 1.7,
+    "bun_mg_dl": 34.0,
+    "glucose_mg_dl": 142.0,
+    "hemoglobin_g_dl": 10.1,
+    "hematocrit_pct": 30.5,
+    "platelet_count": 210.0,
+    "wbc_count": 12.3,
+
+    "sodium_meq_l": 135.0,
+    "potassium_meq_l": 4.6,
+    "chloride_meq_l": 100.0,
+    "bicarbonate_meq_l": 21.0,
+
+    "egfr_ckd_epi": {
+  "sample_patient": {
+    "additionalProp1": {}
+  }
+}59.0,
+    "ckd_stage": "Stage 3a (Mild-to-moderate CKD)",
+    "bun_creatinine_ratio": 20.0,
+
+    "heart_rate_bpm": 95,
+    "systolic_bp_mmhg": 82,
+    "diastolic_bp_mmhg": 48,
+    "map_mmhg": 59.0,
+    "pulse_pressure_mmhg": 34.0,
+
+    "temperature_f": 98.9,
+    "spo2_pct": 94.0,
+    "respiratory_rate": 22,
+
+    "data_completeness_pct": 0.92
+  }
+}
+
+
+
+
+
+{
+  "sample_patient": {
+    "subject_id": 30045678,
+    "hadm_id": 45678912,
+    "stay_id": 55661234,
+    "gender": "F",
+    "age": 72,
+    "race": "WHITE",
+    "admission_type": "EMERGENCY",
+    "insurance": "Medicare",
+    "primary_diagnosis": "Shortness of breath, chest pain, history of diabetes and hypertension",
+    "hospital_expire_flag": 0,
+    "los_hospital_days": 5.1,
+    "los_icu_days": 4.6,
+    "first_careunit": "Medical Intensive Care Unit (MICU)",
+    "last_careunit": "Medical Intensive Care Unit (MICU)",
+
+    "creatinine_mg_dl": 3.2,
+    "bun_mg_dl": 65.0,
+    "glucose_mg_dl": 180.0,
+    "hemoglobin_g_dl": 9.5,
+    "hematocrit_pct": 28.2,
+    "platelet_count": 198.0,
+    "wbc_count": 14.7,
+
+    "sodium_meq_l": 134.0,
+    "potassium_meq_l": 5.8,
+    "chloride_meq_l": 102.0,
+    "bicarbonate_meq_l": 18.0,
+
+    "egfr_ckd_epi": 22.0,
+    "ckd_stage": "Stage 4 (Severe CKD)",
+    "bun_creatinine_ratio": 20.3,
+
+    "heart_rate_bpm": 102,
+    "systolic_bp_mmhg": 86,
+    "diastolic_bp_mmhg": 42,
+    "map_mmhg": 57.0,
+    "pulse_pressure_mmhg": 44.0,
+
+    "temperature_f": 100.2,
+    "spo2_pct": 92.0,
+    "respiratory_rate": 26,
+
+    "data_completeness_pct": 0.91
+  }
+}
+

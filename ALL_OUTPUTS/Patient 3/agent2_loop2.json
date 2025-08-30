@@ -1,0 +1,48 @@
+{
+  "recommendations": [
+    "Consider Ventilation-Perfusion (V/Q) scan as a primary alternative to CTA for evaluating pulmonary embolism given the patient's severe renal dysfunction and hypotension.",
+    "If CT Pulmonary Angiography is deemed necessary, utilize a reduced contrast volume (e.g., 40-60 mL) with a slow injection rate (3-4 mL/s) and implement comprehensive pre- and post-hydration with isotonic saline.",
+    "Perform bedside transthoracic echocardiography to assess for right ventricular strain, which may support the diagnosis of pulmonary embolism and guide management without contrast.",
+    "Delay contrast-enhanced imaging until hyperkalemia and hypotension are corrected."
+  ],
+  "rationale": [
+    "Severe CKD (eGFR 22 mL/min) and hypotension (MAP 57 mmHg) significantly increase the risk of contrast-induced nephropathy (CIN) and hemodynamic compromise.",
+    "Hyperkalemia (5.8 mEq/L) poses a risk for cardiac arrhythmias and should be addressed prior to contrast administration.",
+    "Alternative imaging modalities like V/Q scans or bedside echocardiography can provide critical diagnostic information for suspected PE while minimizing renal and hemodynamic risks.",
+    "If CTA is performed, aggressive renal protection measures and reduced contrast load are essential to mitigate potential harm."
+  ],
+  "protocol_selection": [
+    {
+      "protocol_id": "CT_CHEST_ANGIO_PULMONARY_EMBOLISM",
+      "name": "CT Pulmonary Angiography (Chest CTA for PE)",
+      "indications": [
+        "pulmonary embolism",
+        "acute chest pain",
+        "shortness of breath"
+      ],
+      "description": "CT angiography timed for pulmonary arterial phase (6–13 sec post-contrast) to evaluate pulmonary arteries for embolism.",
+      "contrast_timing": "Pulmonary arterial phase: ≃6–13 sec post-injection.",
+      "contrast_dose": "Weight-based; ~100–150 mL iodinated contrast (300 mg I/mL); follow ACR Manual.",
+      "renal_safety_notes": "Ensure contrast-to-eGFR ratio <1.1 g/(mL/min); if eGFR <30, consider non-contrast alternatives or weigh risks carefully.",
+      "references": [
+        "Contrast CT phases overview (Wikipedia):contentReference[oaicite:0]{index=0}",
+        "CT pulmonary angiogram practical notes (Wikipedia):contentReference[oaicite:1]{index=1}"
+      ]
+    },
+    {
+      "protocol_id": "CT_CHEST_LOW_DOSE_SCREENING",
+      "name": "Low-Dose CT Chest — Lung Cancer Screening",
+      "indications": [
+        "lung cancer screening",
+        "high-risk cohorts"
+      ],
+      "description": "Low-dose CT of lungs targeting <3 mGy radiation dose while maintaining image quality.",
+      "contrast_timing": "N/A — non-contrast low-dose protocol.",
+      "contrast_dose": "None.",
+      "renal_safety_notes": "Ideal in patients with renal dysfunction due to non-use of contrast.",
+      "references": [
+        "Low-dose CT screening dose benchmarks PMC:contentReference[oaicite:6]{index=6}"
+      ]
+    }
+  ]
+}

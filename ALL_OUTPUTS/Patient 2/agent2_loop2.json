@@ -1,0 +1,33 @@
+{
+  "recommendations": [
+    "Prioritize CT Pulmonary Angiography (CT PA) given the emergency admission for chest pain, but proceed with caution due to hypotension and moderate CKD.",
+    "Administer IV hydration (e.g., isotonic saline at 1 mL/kg/hr, adjusted for hypotension) 12 hours prior to and 6-12 hours post-contrast, with careful monitoring of fluid balance and blood pressure.",
+    "Obtain a repeat serum creatinine with an exact timestamp prior to contrast administration to confirm current renal function.",
+    "Consider an alternative imaging modality such as a Ventilation/Perfusion (V/Q) scan if the patient's hemodynamic status or renal function deteriorates, or if the risk of contrast-induced nephropathy is deemed unacceptably high."
+  ],
+  "rationale": [
+    "Patient presents with symptoms concerning for pulmonary embolism, for which CT PA is the diagnostic standard.",
+    "Hypotension (MAP 59 mmHg) and Stage 3a CKD (eGFR 59 mL/min/1.73m²) increase the risk of contrast-induced nephropathy and may be exacerbated by contrast agents.",
+    "The elevated BUN/Cr ratio (20) and creatinine (1.7 mg/dL) suggest potential prerenal azotemia, necessitating careful management of hydration and blood pressure.",
+    "A V/Q scan offers an alternative for PE diagnosis with no iodinated contrast exposure, reducing renal risk."
+  ],
+  "protocol_selection": [
+    {
+      "protocol_id": "CT_CHEST_ANGIO_PULMONARY_EMBOLISM",
+      "name": "CT Pulmonary Angiography (Chest CTA for PE)",
+      "indications": [
+        "pulmonary embolism",
+        "acute chest pain",
+        "shortness of breath"
+      ],
+      "description": "CT angiography timed for pulmonary arterial phase (6–13 sec post-contrast) to evaluate pulmonary arteries for embolism.",
+      "contrast_timing": "Pulmonary arterial phase: ~6–13 sec post-injection.",
+      "contrast_dose": "Weight-based; ~100–150 mL iodinated contrast (300 mg I/mL); follow ACR Manual.",
+      "renal_safety_notes": "Ensure contrast-to-eGFR ratio <1.1 g/(mL/min); if eGFR <30, consider non-contrast alternatives or weigh risks carefully.",
+      "references": [
+        "Contrast CT phases overview (Wikipedia):contentReference[oaicite:0]{index=0}",
+        "CT pulmonary angiogram practical notes (Wikipedia):contentReference[oaicite:1]{index=1}"
+      ]
+    }
+  ]
+}

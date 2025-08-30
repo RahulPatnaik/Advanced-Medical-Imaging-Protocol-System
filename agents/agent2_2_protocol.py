@@ -2,12 +2,15 @@
 import os
 import json
 import re
+import time
 from typing import Dict, Any, List, Optional
 from langgraph.graph import StateGraph
 from pydantic import BaseModel
 from google import genai
 from utils.vector_search import load_or_create_index, vector_search
 from dotenv import load_dotenv
+import backoff
+import threading
 
 # ==== LOAD ENV ====
 load_dotenv()
@@ -19,6 +22,44 @@ GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
 MODEL = "gemini-2.5-flash-lite"
 
 client = genai.Client(api_key=GEMINI_API_KEY)
+
+# ==== RATE LIMITING (12 requests/minute) ====
+RATE_LIMIT = 12
+WINDOW = 60  # seconds
+_request_times: List[float] = []
+_lock = threading.Lock()
+
+def _rate_limit_guard():
+    """Ensure no more than RATE_LIMIT requests occur within WINDOW seconds."""
+    global _request_times
+    with _lock:
+        now = time.time()
+        # Keep only timestamps within the current window
+        _request_times = [t for t in _request_times if now - t < WINDOW]
+
+        if len(_request_times) >= RATE_LIMIT:
+            # Sleep until the window clears
+            sleep_time = WINDOW - (now - _request_times[0])
+            if sleep_time > 0:
+                print(f"[RateLimit] Sleeping {sleep_time:.2f}s to respect 12 requests/minute")
+                time.sleep(sleep_time)
+            # Clean up timestamps after waiting
+            now = time.time()
+            _request_times = [t for t in _request_times if now - t < WINDOW]
+
+        _request_times.append(time.time())
+
+# Backoff decorator for transient Gemini errors (HTTP 429/500-like)
+@backoff.on_exception(
+    backoff.expo,
+    Exception,  # you could narrow to specific Gemini exceptions if desired
+    max_tries=5,
+    jitter=backoff.full_jitter,
+)
+def safe_gemini_generate_content(prompt: str, model: str = MODEL):
+    """Call Gemini with built-in backoff + rate limiting."""
+    _rate_limit_guard()
+    return client.models.generate_content(model=model, contents=prompt)
 
 # ==== STATE ====
 class AgentState(BaseModel):
@@ -95,7 +136,7 @@ Generate a JSON with:
 Make sure your output is valid JSON only.
 """
 
-    resp = client.models.generate_content(model=MODEL, contents=prompt)
+    resp = safe_gemini_generate_content(prompt, model=MODEL)
     state.final_decision = extract_json_from_text(resp.text)
     return state
 

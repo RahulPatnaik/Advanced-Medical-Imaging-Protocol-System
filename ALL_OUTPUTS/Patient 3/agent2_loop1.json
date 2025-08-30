@@ -1,0 +1,49 @@
+{
+  "recommendations": [
+    "Consider CT Pulmonary Angiography (Chest CTA for PE) with aggressive hydration and careful contrast volume monitoring.",
+    "Explore non-contrast imaging options for the chest if clinically feasible and diagnostic for the acute presentation.",
+    "If a non-contrast study is insufficient, carefully consider the risks of CIN in the context of the patient's severe CKD and hypotension.",
+    "Ensure adherence to ACR guidelines for contrast media use in patients with reduced renal function."
+  ],
+  "rationale": [
+    "Patient has Stage 4 CKD (eGFR 22.0), increasing risk for CIN.",
+    "Patient is hypotensive (MAP 57.0 mmHg), which can exacerbate contrast-related renal injury.",
+    "Acute presentation of shortness of breath and chest pain strongly suggests PE as a primary concern, necessitating CTA.",
+    "Aggressive hydration is recommended per ACR guidelines to mitigate CIN risk.",
+    "Non-contrast chest imaging should be considered as an alternative if it can adequately address the acute clinical question."
+  ],
+  "protocol_selection": [
+    {
+      "protocol_id": "CT_CHEST_ANGIO_PULMONARY_EMBOLISM",
+      "name": "CT Pulmonary Angiography (Chest CTA for PE)",
+      "indications": [
+        "pulmonary embolism",
+        "acute chest pain",
+        "shortness of breath"
+      ],
+      "description": "CT angiography timed for pulmonary arterial phase (6–13 sec post-contrast) to evaluate pulmonary arteries for embolism.",
+      "contrast_timing": "Pulmonary arterial phase: ∼6–13 sec post-injection.",
+      "contrast_dose": "Weight-based; ~100–150 mL iodinated contrast (300 mg I/mL); follow ACR Manual.",
+      "renal_safety_notes": "Ensure contrast-to-eGFR ratio <1.1 g/(mL/min); if eGFR <30, consider non-contrast alternatives or weigh risks carefully.",
+      "references": [
+        "Contrast CT phases overview (Wikipedia):contentReference[oaicite:0]{index=0}",
+        "CT pulmonary angiogram practical notes (Wikipedia):contentReference[oaicite:1]{index=1}"
+      ]
+    },
+    {
+      "protocol_id": "CT_CHEST_LOW_DOSE_SCREENING",
+      "name": "Low-Dose CT Chest — Lung Cancer Screening",
+      "indications": [
+        "lung cancer screening",
+        "high-risk cohorts"
+      ],
+      "description": "Low-dose CT of lungs targeting <3 mGy radiation dose while maintaining image quality.",
+      "contrast_timing": "N/A — non-contrast low-dose protocol.",
+      "contrast_dose": "None.",
+      "renal_safety_notes": "Ideal in patients with renal dysfunction due to non-use of contrast.",
+      "references": [
+        "Low-dose CT screening dose benchmarks PMC:contentReference[oaicite:6]{index=6}"
+      ]
+    }
+  ]
+}

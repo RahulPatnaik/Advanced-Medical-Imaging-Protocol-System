@@ -1,0 +1,33 @@
+{
+  "recommendations": [
+    "CT Chest Angiography (CTA) for Pulmonary Embolism should be considered to evaluate for acute pulmonary embolism given the patient's symptoms of right-sided chest pain and presentation as an emergency.",
+    "Given the patient's elevated creatinine (1.7 mg/dL) and moderate CKD (eGFR 59 mL/min/1.73m²), administer IV fluids pre- and post-contrast according to ACR guidelines to mitigate contrast-induced nephropathy risk.",
+    "Monitor renal function post-imaging due to the potential risk of contrast-induced nephropathy."
+  ],
+  "rationale": [
+    "Patient presents with right-sided chest pain, a common symptom of pulmonary embolism.",
+    "eGFR of 59 mL/min/1.73m² indicates Stage 3a CKD, increasing risk of contrast-induced nephropathy.",
+    "Hypotension (MAP 59 mmHg) further increases risk of contrast-induced nephropathy.",
+    "CT Chest Angiography is the standard imaging modality for diagnosing pulmonary embolism.",
+    "Hydration protocols are recommended by ACR for patients with renal insufficiency undergoing contrast-enhanced CT."
+  ],
+  "protocol_selection": [
+    {
+      "protocol_id": "CT_CHEST_ANGIO_PULMONARY_EMBOLISM",
+      "name": "CT Pulmonary Angiography (Chest CTA for PE)",
+      "indications": [
+        "pulmonary embolism",
+        "acute chest pain",
+        "shortness of breath"
+      ],
+      "description": "CT angiography timed for pulmonary arterial phase (6–13 sec post-contrast) to evaluate pulmonary arteries for embolism.",
+      "contrast_timing": "Pulmonary arterial phase: ≃6–13 sec post-injection.",
+      "contrast_dose": "Weight-based; ~100–150 mL iodinated contrast (300 mg I/mL); follow ACR Manual.",
+      "renal_safety_notes": "Ensure contrast-to-eGFR ratio <1.1 g/(mL/min); if eGFR <30, consider non-contrast alternatives or weigh risks carefully.",
+      "references": [
+        "Contrast CT phases overview (Wikipedia):contentReference[oaicite:0]{index=0}",
+        "CT pulmonary angiogram practical notes (Wikipedia):contentReference[oaicite:1]{index=1}"
+      ]
+    }
+  ]
+}
